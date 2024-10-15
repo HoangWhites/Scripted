@@ -496,11 +496,11 @@ function GaySec()
                 end
                 if enemy:DistanceFromCharacter(plr.Character.Head.Position) <= 100 then
                     if elapsed == nil or elapsed == 0 then
-                        if os.time - elapsed >= 10 and not CheckInComBat() then
+                        if os.time() - elapsed >= 10 and not CheckInComBat() then
                             FindNewEnemy()
                         end
                     else
-                        elapsed = os.time
+                        elapsed = os.time()
                     end
                 end
                 if plr.PlayerGui.Main.BottomHUDList.SafeZone.Visible and enemy:DistanceFromCharacter(plr.Character.Head.Position) <= 100 then
