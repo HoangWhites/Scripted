@@ -486,9 +486,6 @@ function GaySec()
                 if (checknotify("died") or checknotify("player") or checknotify("Safe") or checknotify("zone")) and (enemy.Character.Head.Position - plr.Character.HumanoidRootPart.Position).Magnitude <= 150 then
                     FindNewEnemy()
                 end 
-                if (enemy.Character.HumanoidRootPart.Position.Y - plr.Character.HumanoidRootPart.Position.Y).Magnitude > 1000 then
-                    FindNewEnemy()
-                end
                 if Config["Settings"]["Camera Mode"]["Specated"] then 
                     workspace.CurrentCamera.CameraSubject = enemy.Character 
                 else 
