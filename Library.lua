@@ -52,7 +52,7 @@ end
 local function updatecanvasize(NameTab)
     local OffsetY = 0
     for _, child in pairs(NameTab:GetChildren()) do
-        if child.Name ~= "UIListLayout" and not string.find(child.Name, "UI") and v.ClassName == "ScrollingFrame" then
+        if child.Name ~= "UIListLayout" and not string.find(child.Name, "UI") and child.ClassName == "ScrollingFrame" then
             OffsetY = OffsetY + 5 + child.Size.Y.Offset
         end
     end
@@ -655,19 +655,8 @@ function Library:AddWindows(Config)
     TabHolderThu2.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TabHolderThu2.BorderSizePixel = 0
     TabHolderThu2.Size = UDim2.new(1, 0, 1, 0)
-    TabHolderThu2.CanvasSize = UDim2.new(1, 300, 0, 0)
+    TabHolderThu2.CanvasSize = UDim2.new(1, 200, 0, 0)
     TabHolderThu2.ScrollBarThickness = 0
-    local function UpdateCanvaSize()
-        local OffsetY = 0
-        for _, child in pairs(TabHolderThu2:GetChildren()) do
-            if child.Name ~= "UIListLayout" and not string.find(child.Name, "UI") then
-				OffsetY = OffsetY + 3 + child.Size.Y.Offset
-			end
-        end
-        TabHolderThu2.CanvasSize = UDim2.new(0, OffsetY, 0, 0)
-    end
-    TabHolderThu2.ChildAdded:Connect(UpdateCanvaSize)
-    TabHolderThu2.ChildRemoved:Connect(UpdateCanvaSize)
 
     UIPadding.Parent = TabHolderThu2
     UIPadding.PaddingBottom = UDim.new(0, 4)
@@ -679,6 +668,10 @@ function Library:AddWindows(Config)
     UIListLayout.FillDirection = Enum.FillDirection.Horizontal
     UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
     UIListLayout.Padding = UDim.new(0, 12)
+
+    game:GetService("RunService").Stepped:Connect(function()
+        TabHolderThu2.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X + 20, 0, 0)
+    end)
 
     Top.Name = "Top"
     Top.Parent = Main
@@ -967,8 +960,9 @@ function Library:AddWindows(Config)
         Channel.Size = UDim2.new(1, 0, 1, 0)
         Channel.MidImage = "rbxassetid://91241762908661"
         Channel.ScrollBarThickness = 1
-        Channel.ChildAdded:Connect(updatecanvasize(Ngu))
-        Channel.ChildRemoved:Connect(updatecanvasize(Ngu))
+        game:GetService("RunService").Stepped:Connect(function()
+            Channel.CanvasSize = UDim2.new(0, 0, 0, Left.Size.Y.Offset + 60)
+        end)
 
         Click.Activated:Connect(function()
             for _, v in next, TabDisable:GetChildren() do
@@ -1087,7 +1081,9 @@ function Library:AddWindows(Config)
         Left.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Left.BorderSizePixel = 0
         Left.Position = UDim2.new(0, 0, 0, 35)
-        Left.Size = UDim2.new(0, 259, 0, 400)
+        game:GetService("RunService").Stepped:Connect(function()
+            Left.Size = UDim2.new(0, 259, 0, UIListLayout_2.AbsoluteContentSize.Y + 42)
+        end)
 
         UIPadding_7.Parent = Left
         UIPadding_7.PaddingBottom = UDim.new(0, 3)
@@ -1601,8 +1597,9 @@ function Library:AddWindows(Config)
             List.BorderSizePixel = 0
             List.Size = UDim2.new(1, 0, 1, 0)
             List.ScrollBarThickness = 0
-            List.ChildAdded:Connect(updatecanvasize(ListFrame))
-            List.ChildRemoved:Connect(updatecanvasize(ListFrame))
+            game:GetService("RunService").Stepped:Connect(function ()
+                List.CanvasSize = UDim2.new(0, 0, 0, UIListLayout_3.AbsoluteContentSize.Y + 20)
+            end)
 
             UIPadding_12.Parent = List
             UIPadding_12.PaddingBottom = UDim.new(0, 12)
