@@ -49,6 +49,16 @@ makedraggable = function (topbar, object)
     end)
 end
 
+local function updatecanvasize(NameTab)
+    local OffsetY = 0
+    for _, child in pairs(NameTab:GetChildren()) do
+        if child.Name ~= "UIListLayout" and not string.find(child.Name, "UI") and v.ClassName == "ScrollingFrame" then
+            OffsetY = OffsetY + 5 + child.Size.Y.Offset
+        end
+    end
+    NameTab.CanvasSize = UDim2.new(0, 0, 0, OffsetY)
+end
+
 function Library:AddNotify(ConfigNotify)
     ConfigNotify = ConfigNotify or {}
     ConfigNotify.Title = ConfigNotify.Title or "Notification"
@@ -957,6 +967,8 @@ function Library:AddWindows(Config)
         Channel.Size = UDim2.new(1, 0, 1, 0)
         Channel.MidImage = "rbxassetid://91241762908661"
         Channel.ScrollBarThickness = 1
+        Channel.ChildAdded:Connect(updatecanvasize(Ngu))
+        Channel.ChildRemoved:Connect(updatecanvasize(Ngu))
 
         Click.Activated:Connect(function()
             for _, v in next, TabDisable:GetChildren() do
@@ -1517,7 +1529,7 @@ function Library:AddWindows(Config)
             local UIPadding_11 = Instance.new("UIPadding")
             local Logo_4 = Instance.new("ImageLabel")
             local ListFrame = Instance.new("Frame")
-            local List = Instance.new("Frame")
+            local List = Instance.new("ScrollingFrame")
             local UIPadding_12 = Instance.new("UIPadding")
             local UIListLayout_3 = Instance.new("UIListLayout")
             local Click = Instance.new("TextButton")
@@ -1588,6 +1600,9 @@ function Library:AddWindows(Config)
             List.BorderColor3 = Color3.fromRGB(0, 0, 0)
             List.BorderSizePixel = 0
             List.Size = UDim2.new(1, 0, 1, 0)
+            List.ScrollBarThickness = 0
+            List.ChildAdded:Connect(updatecanvasize(ListFrame))
+            List.ChildRemoved:Connect(updatecanvasize(ListFrame))
 
             UIPadding_12.Parent = List
             UIPadding_12.PaddingBottom = UDim.new(0, 12)
