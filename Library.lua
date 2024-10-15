@@ -1160,7 +1160,7 @@ function Library:AddWindows(Config)
             Title_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Title_2.BorderSizePixel = 0
             Title_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-            Title_2.Size = UDim2.new(0, 69, 0, 20)
+            Title_2.Size = UDim2.new(0, Title_2.TextBounds.X + 28, 0, 20)
             Title_2.Font = Enum.Font.GothamBold
             Title_2.Text = PutText
             Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
