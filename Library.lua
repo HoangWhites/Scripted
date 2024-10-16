@@ -1149,7 +1149,7 @@ function Library:AddWindows(Config)
             Seperator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Seperator.BorderSizePixel = 0
-            Seperator.Size = UDim2.new(1, 0, 0, 2)
+            Seperator.Size = UDim2.new(1, 0, 0, 15)
 
             UICorner_11.Parent = Seperator
 
