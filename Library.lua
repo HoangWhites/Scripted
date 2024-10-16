@@ -1111,19 +1111,22 @@ function Library:AddWindows(Config)
         Right.BorderSizePixel = 0
         Right.Position = UDim2.new(0, 269, 0, 35)
         Right.Size = UDim2.new(0, 259, 0, 265)
+        game:GetService("RunService").Stepped:Connect(function()
+            Right.Size = UDim2.new(0, 259, 0, UIListLayout_4.AbsoluteContentSize.Y + 42)
+        end)
 
         UICorner_23.CornerRadius = UDim.new(0, 4)
         UICorner_23.Parent = Right
 
         UIListLayout_4.Parent = Right
         UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
-        UIListLayout_4.Padding = UDim.new(0, 4)
+        UIListLayout_4.Padding = UDim.new(0, 7)
 
         UIPadding_13.Parent = Right
         UIPadding_13.PaddingBottom = UDim.new(0, 3)
-        UIPadding_13.PaddingLeft = UDim.new(0, 3)
-        UIPadding_13.PaddingRight = UDim.new(0, 3)
-        UIPadding_13.PaddingTop = UDim.new(0, 3)
+        UIPadding_13.PaddingLeft = UDim.new(0, 6)
+        UIPadding_13.PaddingRight = UDim.new(0, 6)
+        UIPadding_13.PaddingTop = UDim.new(0, 12)
 
         UIStroke_8.Parent = Right
         UIStroke_8.Color = Color3.fromRGB(200, 200, 200)
