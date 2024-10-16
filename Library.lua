@@ -1309,7 +1309,7 @@ function Library:AddWindows(Config)
 
             Toggled = ConfigToggle.Default
             if ConfigToggle.Default == true then
-                ConfigToggle:Set(Toggled)
+                ToggleFunc:Set(Toggled)
             end
             Click_5.Activated:Connect(function()
                 Toggled = not Toggled
