@@ -1149,7 +1149,7 @@ function Library:AddWindows(Config)
             Seperator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Seperator.BorderSizePixel = 0
-            Seperator.Size = UDim2.new(1, 0, 0, 15)
+            Seperator.Size = UDim2.new(1, 0, 0, 2)
 
             UICorner_11.Parent = Seperator
 
@@ -1548,10 +1548,10 @@ function Library:AddWindows(Config)
             Dropdown.BorderSizePixel = 0
             Dropdown.ClipsDescendants = true
             Dropdown.Position = UDim2.new(0, 0, 0.407792211, 0)
-            Dropdown.Size = UDim2.new(1, 0, 0, 20)
+            Dropdown.Size = UDim2.new(1, 0, 0, 30)
 
             Click.Parent = Dropdown
-            Click.Size = UDim2.new(1, 0, 0, 20)
+            Click.Size = UDim2.new(1, 0, 0, 30)
             Click.Position = UDim2.new(0, 0, 0 ,0)
             Click.BackgroundTransparency = 1.000
             Click.Text = ""
@@ -1562,7 +1562,7 @@ function Library:AddWindows(Config)
             Title_6.BackgroundTransparency = 1.000
             Title_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Title_6.BorderSizePixel = 0
-            Title_6.Size = UDim2.new(1, 0, 0, 20)
+            Title_6.Size = UDim2.new(1, 0, 0, 30)
             Title_6.Font = Enum.Font.GothamBold
             Title_6.Text = ConfigDropdown.Name .. " : " .. ConfigDropdown.Default
             Title_6.TextColor3 = Color3.fromRGB(200, 200, 200)
