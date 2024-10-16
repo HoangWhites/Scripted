@@ -1268,7 +1268,7 @@ function Library:AddWindows(Config)
             Click_5.TextColor3 = Color3.fromRGB(0, 0, 0)
             Click_5.TextSize = 14.000
 
-            Toggled = ConfigToggle.Default
+            Toggled = false
             function ToggleFunc:Set(Value)
                 if Value then
                     TweenService:Create(
@@ -1307,7 +1307,10 @@ function Library:AddWindows(Config)
                 ConfigToggle.Callback(Toggled)
             end
 
-            ToggleFunc:Set(Toggled)
+            Toggled = ConfigToggle.Default
+            if ConfigToggle.Default == true then
+                ConfigToggle:Set(Toggled)
+            end
             Click_5.Activated:Connect(function()
                 Toggled = not Toggled
                 ToggleFunc:Set(Toggled)
@@ -1712,9 +1715,7 @@ function Library:AddWindows(Config)
             end
 
             DropFunc:Refresh(ConfigDropdown.Options)
-            if ConfigDropdown.Default ~= "" then
-                DropFunc:Set(ConfigDropdown.Default)
-            end
+            DropFunc:Set(ConfigDropdown.Default)
 			ConfigDropdown.Callback(ConfigDropdown.Default)
         end
         function Features:AddTextbox(Cc, ConfigText)
