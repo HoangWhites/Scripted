@@ -1140,22 +1140,22 @@ function Library:AddWindows(Config)
             local UICorner_11 = Instance.new("UICorner")
             local Title_2 = Instance.new("TextLabel")
             local UICorner_12 = Instance.new("UICorner")
-
+        
             if Cc == 'Left' then
                 Choice = Left
             elseif Cc == "Right" then
                 Choice = Right
             end
-
+        
             Seperator.Name = "Seperator"
             Seperator.Parent = Choice
             Seperator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Seperator.BorderSizePixel = 0
             Seperator.Size = UDim2.new(1, 0, 0, 2)
-
+        
             UICorner_11.Parent = Seperator
-
+        
             Title_2.Name = "Title"
             Title_2.Parent = Seperator
             Title_2.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1163,15 +1163,19 @@ function Library:AddWindows(Config)
             Title_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Title_2.BorderSizePixel = 0
             Title_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-            Title_2.Size = UDim2.new(0, Title_2.TextBounds.X + 28, 0, 20)
+            Title_2.Size = UDim2.new(0, Title_2.TextBounds.X + 100, 0, 20)
             Title_2.Font = Enum.Font.GothamBold
             Title_2.Text = PutText
             Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
             Title_2.TextSize = 14.000
-
+        
             UICorner_12.CornerRadius = UDim.new(0, 4)
             UICorner_12.Parent = Title_2
-        end
+        
+            Title_2:GetPropertyChangedSignal("TextBounds"):Connect(function()
+                Seperator.Size = UDim2.new(0, Title_2.TextBounds.X + 100, 0, 2)
+            end)
+        end        
         function Features:AddToggle(Cc, ConfigToggle)
             ConfigToggle = ConfigToggle or {}
             ConfigToggle.Name = ConfigToggle.Name or "Toggle"
@@ -1720,6 +1724,7 @@ function Library:AddWindows(Config)
             DropFunc:Refresh(ConfigDropdown.Options)
             DropFunc:Set(ConfigDropdown.Default)
 			ConfigDropdown.Callback(ConfigDropdown.Default)
+            return ConfigDropdown
         end
         function Features:AddTextbox(Cc, ConfigText)
             ConfigText = ConfigText or {}
