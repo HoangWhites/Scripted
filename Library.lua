@@ -261,6 +261,11 @@ function Library:AddWindows(Config)
     Config.Description = Config.Description or "Whites Hub© 2024 discord.gg/Sq8WNGn"
     local UniqueRemake = Instance.new("ScreenGui")
     local Main = Instance.new("Frame")
+    local LogoConcat = Instance.new("Frame")
+    local Logoed = Instance.new("ImageLabel")
+    local Nigga = Instance.new("UICorner")
+    local Ngu2 = Instance.new("UIStroke")
+    local Clicking = Instance.new("TextButton")
     local UICorner = Instance.new("UICorner")
     local UIStroke = Instance.new("UIStroke")
     local DropShadowHolder = Instance.new("Frame")
@@ -314,6 +319,53 @@ function Library:AddWindows(Config)
     UniqueRemake.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     UniqueRemake.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+    LogoConcat.Name = "LogoConcat"
+    LogoConcat.Parent = UniqueRemake
+    LogoConcat.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    LogoConcat.BackgroundTransparency = 1.000
+    LogoConcat.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    LogoConcat.BorderSizePixel = 0
+    LogoConcat.Position = UDim2.new(0.0890538022, 0, 0.073170729, 0)
+    LogoConcat.Size = UDim2.new(0, 45, 0, 45)
+
+    Logoed.Name = "Logoed"
+    Logoed.Parent = LogoConcat
+    Logoed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Logoed.BackgroundTransparency = 1.000
+    Logoed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Logoed.BorderSizePixel = 0
+    Logoed.Size = UDim2.new(1, 0, 1, 0)
+    Logoed.Image = "rbxassetid://99761466306940"
+
+    Nigga.CornerRadius = UDim.new(0, 6)
+    Nigga.Name = "Nigga"
+    Nigga.Parent = Logoed
+
+    Ngu2.Name = "Ngu"
+    Ngu2.Parent = Logoed
+    Ngu2.Color = Color3.fromRGB(255, 255, 255)
+    Ngu2.Transparency = 0.800
+    Ngu2.Thickness = 2.200
+
+    Clicking.Name = "Clicking"
+    Clicking.Parent = LogoConcat
+    Clicking.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Clicking.BackgroundTransparency = 1.000
+    Clicking.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Clicking.BorderSizePixel = 0
+    Clicking.Size = UDim2.new(1, 0, 1, 0)
+    Clicking.Font = Enum.Font.SourceSans
+    Clicking.Text = ""
+    Clicking.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Clicking.TextSize = 14.000
+    Clicking.Activated:Connect(function()
+        if Main.Visible == true then
+            Main.Visible = false
+        else
+            Main.Visible = true
+        end
+    end)
+
     AnimationGUI.Name = "Animation GUI"
     AnimationGUI.Parent = UniqueRemake
     AnimationGUI.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -358,7 +410,7 @@ function Library:AddWindows(Config)
     Cricle_2.BorderSizePixel = 0
     Cricle_2.Position = UDim2.new(0.5, 0, 0.5, 0)
 
-    UICorner_2.CornerRadius = UDim.new(1, 0)
+    UICorner_2.CornerRadius = UDim.new(100, 0)
     UICorner_2.Parent = Cricle_2
 
     Cricle_3.Name = "Cricle"
@@ -380,7 +432,7 @@ function Library:AddWindows(Config)
     Cricle_4.BorderSizePixel = 0
     Cricle_4.Position = UDim2.new(0.5, 0, 0.5, 0)
 
-    UICorner_4.CornerRadius = UDim.new(1, 0)
+    UICorner_4.CornerRadius = UDim.new(100, 0)
     UICorner_4.Parent = Cricle_4
     Main.Position = UDim2.new(0.5, 0, 1.5, 0)
     TweenService:Create(
