@@ -838,16 +838,20 @@ function Library:AddWindows(Config)
         local NameTab_2 = Instance.new("TextLabel")
         local UIPadding_2 = Instance.new("UIPadding")
         local Logo = Instance.new("ImageLabel")
-        local Click = Instance.new("TextButton")
+        local Click_ = Instance.new("TextButton")
         local Channel = Instance.new("ScrollingFrame")
         local UICorner_25 = Instance.new("UICorner")
         local UIPadding_5 = Instance.new("UIPadding")
         local PageSettings = Instance.new("Frame")
         local IDK = Instance.new("TextLabel")
         local UIPadding_6 = Instance.new("UIPadding")
-        local Button = Instance.new("Frame")
-        local Next = Instance.new("TextLabel")
-        local Click_4 = Instance.new("TextButton")
+        local Back = Instance.new("Frame")
+        local Back_2 = Instance.new("TextLabel")
+        local Click = Instance.new("TextButton")
+        local Click_2 = Instance.new("TextButton")
+        local Next = Instance.new("Frame")
+        local Next_2 = Instance.new("TextLabel")
+        local Click_3 = Instance.new("TextButton")
         local UICorner_9 = Instance.new("UICorner")
         local Left = Instance.new("Frame")
         local UIPadding_7 = Instance.new("UIPadding")
@@ -1023,40 +1027,89 @@ function Library:AddWindows(Config)
         UIPadding_6.Parent = IDK
         UIPadding_6.PaddingLeft = UDim.new(0, 12)
 
-        Button.Name = "Button"
-        Button.Parent = IDK
-        Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Button.BackgroundTransparency = 1.000
-        Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        Button.BorderSizePixel = 0
-        Button.Position = UDim2.new(0.864077687, 0, 0.0384616107, 0)
-        Button.Size = UDim2.new(0, 77, 0, 25)
+        Back.Name = "Back"
+        Back.Parent = IDK
+        Back.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Back.BackgroundTransparency = 1.000
+        Back.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Back.BorderSizePixel = 0
+        Back.Position = UDim2.new(0.864000022, 0, 0.0379999988, 0)
+        Back.Size = UDim2.new(0, 34, 0, 25)
+
+        Back_2.Name = "Back"
+        Back_2.Parent = Back
+        Back_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Back_2.BackgroundTransparency = 1.000
+        Back_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Back_2.BorderSizePixel = 0
+        Back_2.Position = UDim2.new(0, -12, 0, 0)
+        Back_2.Size = UDim2.new(1, 0, 1, 0)
+        Back_2.Font = Enum.Font.GothamBold
+        Back_2.Text = "Back"
+        Back_2.TextColor3 = Color3.fromRGB(200, 200, 200)
+        Back_2.TextSize = 13.000
+
+        Click_2.Name = "Click"
+        Click_2.Parent = Back
+        Click_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Click_2.BackgroundTransparency = 1.000
+        Click_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Click_2.BorderSizePixel = 0
+        Click_2.Size = UDim2.new(1, 0, 1, 0)
+        Click_2.Font = Enum.Font.SourceSans
+        Click_2.Text = ""
+        Click_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+        Click_2.TextSize = 14.000
+        Click_2.Activated:Connect(function()
+            UIPageLayout:JumpToIndex(Channel.LayoutOrder - 1)
+            if (Channel.LayoutOrder - 1) >= 0 then
+                for _, v in next, TabDisable:GetChildren() do
+                    if v.Name == "Name Tab" then
+                        v.TextColor3 = Color3.fromRGB(144, 144, 144)
+                    end
+                end
+                for _, v in next, TabEnable:GetChildren() do
+                    if v.Name == "Name Tab" then
+                        v.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    end
+                end
+            end
+        end)
 
         Next.Name = "Next"
-        Next.Parent = Button
+        Next.Parent = IDK
         Next.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Next.BackgroundTransparency = 1.000
         Next.BorderColor3 = Color3.fromRGB(0, 0, 0)
         Next.BorderSizePixel = 0
-        Next.Position = UDim2.new(0, -12, 0, 0)
-        Next.Size = UDim2.new(1, 0, 1, 0)
-        Next.Font = Enum.Font.GothamBold
-        Next.Text = "Next"
-        Next.TextColor3 = Color3.fromRGB(200, 200, 200)
-        Next.TextSize = 13.000
+        Next.Position = UDim2.new(0.864000022, 40, 0.0379999988, 0)
+        Next.Size = UDim2.new(0, 34, 0, 25)
 
-        Click_4.Name = "Click"
-        Click_4.Parent = Button
-        Click_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Click_4.BackgroundTransparency = 1.000
-        Click_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        Click_4.BorderSizePixel = 0
-        Click_4.Size = UDim2.new(1, 0, 1, 0)
-        Click_4.Font = Enum.Font.SourceSans
-        Click_4.Text = ""
-        Click_4.TextColor3 = Color3.fromRGB(0, 0, 0)
-        Click_4.TextSize = 14.000
-        Click_4.Activated:Connect(function()
+        Next_2.Name = "Next"
+        Next_2.Parent = Next
+        Next_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Next_2.BackgroundTransparency = 1.000
+        Next_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Next_2.BorderSizePixel = 0
+        Next_2.Position = UDim2.new(0, -12, 0, 0)
+        Next_2.Size = UDim2.new(1, 0, 1, 0)
+        Next_2.Font = Enum.Font.GothamBold
+        Next_2.Text = "Next"
+        Next_2.TextColor3 = Color3.fromRGB(200, 200, 200)
+        Next_2.TextSize = 13.000
+
+        Click_3.Name = "Click"
+        Click_3.Parent = Next
+        Click_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Click_3.BackgroundTransparency = 1.000
+        Click_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Click_3.BorderSizePixel = 0
+        Click_3.Size = UDim2.new(1, 0, 1, 0)
+        Click_3.Font = Enum.Font.SourceSans
+        Click_3.Text = ""
+        Click_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+        Click_3.TextSize = 14.000
+        Click_3.Activated:Connect(function()
             UIPageLayout:JumpToIndex(Channel.LayoutOrder + 1)
             if (Channel.LayoutOrder + 1) <= 0 then
                 for _, v in next, TabDisable:GetChildren() do
