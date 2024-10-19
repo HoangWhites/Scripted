@@ -1463,7 +1463,7 @@ function Library:AddWindows(Config)
             Cac.BorderSizePixel = 0
             Cac.Size = UDim2.new(1, 0, 1, 0)
             Cac.Font = Enum.Font.GothamBold
-            Cac.Text = "Button"
+            Cac.Text = ConfigButton.Name
             Cac.TextColor3 = Color3.fromRGB(15, 15, 15)
             Cac.TextSize = 13.000
 
