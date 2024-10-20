@@ -307,13 +307,16 @@ function Library:AddWindows(Config)
     local AnimationGUI = Instance.new("Frame")
     local Cricle = Instance.new("Frame")
     local UICorner = Instance.new("UICorner")
-    local NameHub = Instance.new("TextLabel")
     local Cricle_2 = Instance.new("Frame")
     local UICorner_2 = Instance.new("UICorner")
+    local UIGradient = Instance.new("UIGradient")
     local Cricle_3 = Instance.new("Frame")
     local UICorner_3 = Instance.new("UICorner")
+    local UIGradient_2 = Instance.new("UIGradient")
     local Cricle_4 = Instance.new("Frame")
     local UICorner_4 = Instance.new("UICorner")
+    local UIGradient_3 = Instance.new("UIGradient")
+    local ImageLabel = Instance.new("ImageLabel")
 
     UniqueRemake.Name = "UniqueRemake"
     UniqueRemake.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -365,7 +368,7 @@ function Library:AddWindows(Config)
             Main.Visible = true
         end
     end)
-
+spawn(function ()
     AnimationGUI.Name = "Animation GUI"
     AnimationGUI.Parent = UniqueRemake
     AnimationGUI.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -382,25 +385,10 @@ function Library:AddWindows(Config)
     Cricle.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Cricle.BorderSizePixel = 0
     Cricle.Position = UDim2.new(0.435000002, 0, 0.174999997, 0)
+    Cricle.Size = UDim2.new(0, 0, 0, 0)
 
-    UICorner.CornerRadius = UDim.new(0, 4)
+    UICorner.CornerRadius = UDim.new(1, 0)
     UICorner.Parent = Cricle
-
-    NameHub.Name = "NameHub"
-    NameHub.Parent = Cricle
-    NameHub.AnchorPoint = Vector2.new(0.5, 0.5)
-    NameHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    NameHub.BackgroundTransparency = 1.000
-    NameHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    NameHub.BorderSizePixel = 0
-    NameHub.ClipsDescendants = true
-    NameHub.Position = UDim2.new(0.5, 0, 0.5, 0)
-    NameHub.Font = Enum.Font.GothamBold
-    NameHub.Text = Config.Name
-    NameHub.TextColor3 = Color3.fromRGB(255, 255, 255)
-    NameHub.TextSize = 16.000
-    NameHub.TextWrapped = true
-    NameHub.TextXAlignment = Enum.TextXAlignment.Left
 
     Cricle_2.Name = "Cricle"
     Cricle_2.Parent = Cricle
@@ -409,9 +397,15 @@ function Library:AddWindows(Config)
     Cricle_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Cricle_2.BorderSizePixel = 0
     Cricle_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Cricle_2.Size = UDim2.new(0, 0, 0, 0)
+    -- UDim2.new(3.6500001, 0, 0.5, 0)
 
-    UICorner_2.CornerRadius = UDim.new(100, 0)
+    UICorner_2.CornerRadius = UDim.new(0, 6)
     UICorner_2.Parent = Cricle_2
+
+    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.57, Color3.fromRGB(51, 51, 51)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
+    UIGradient.Rotation = -45
+    UIGradient.Parent = Cricle_2
 
     Cricle_3.Name = "Cricle"
     Cricle_3.Parent = Cricle
@@ -420,9 +414,15 @@ function Library:AddWindows(Config)
     Cricle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Cricle_3.BorderSizePixel = 0
     Cricle_3.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Cricle_3.Size = UDim2.new(0, 0, 0, 0)
+    -- UDim2.new(1.58000004, 0, 0.5, 0)
 
-    UICorner_3.CornerRadius = UDim.new(0, 2)
+    UICorner_3.CornerRadius = UDim.new(0, 6)
     UICorner_3.Parent = Cricle_3
+
+    UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.57, Color3.fromRGB(51, 51, 51)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
+    UIGradient_2.Rotation = -45
+    UIGradient_2.Parent = Cricle_3
 
     Cricle_4.Name = "Cricle"
     Cricle_4.Parent = Cricle
@@ -431,125 +431,104 @@ function Library:AddWindows(Config)
     Cricle_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Cricle_4.BorderSizePixel = 0
     Cricle_4.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Cricle_4.Size = UDim2.new(0, 0, 0, 0)
+    -- UDim2.new(2.6500001, 0, 0.5, 0)
 
-    UICorner_4.CornerRadius = UDim.new(100, 0)
+    UICorner_4.CornerRadius = UDim.new(1, 0)
     UICorner_4.Parent = Cricle_4
+
+    UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.57, Color3.fromRGB(51, 51, 51)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
+    UIGradient_3.Rotation = -45
+    UIGradient_3.Parent = Cricle_4
+
+    ImageLabel.Parent = Cricle
+    ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+    ImageLabel.BackgroundTransparency = 1.000
+    ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ImageLabel.BorderSizePixel = 0
+    ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+    ImageLabel.Size = UDim2.new(0, 0, 0, 0)
+    ImageLabel.Image = "rbxassetid://112223524096800"
+    -- UDim2.new(-4.75555563, 0, -2, 0)
     Main.Position = UDim2.new(0.5, 0, 1.5, 0)
     TweenService:Create(
         Cricle,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Size = UDim2.new(0, 25, 0, 25)}
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Size = UDim2.new(0, 45, 0, 45)}
     ):Play()
-    wait(1)
+    task.wait(0.5)
     TweenService:Create(
-        NameHub,
-        TweenInfo.new(1, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(0, -42, 0.5, 0)}
+        ImageLabel,
+        TweenInfo.new(tonumber(.1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Size = UDim2.new(0, 375, 0, 240)}
     ):Play()
+    ImageLabel.AnchorPoint = Vector2.new(0, 0)
     TweenService:Create(
-        NameHub,
-        TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Size = UDim2.new(0, 105, 0, 44)}
+        ImageLabel,
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Position = UDim2.new(-4.75555563, 0, -2, 0)}
     ):Play()
-    wait(1)
-    TweenService:Create(
-        Cricle_2,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(1.82, 0, 0.5, 0)}
-    ):Play()
+    task.wait(0.5)
     TweenService:Create(
         Cricle_2,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Size = UDim2.new(0, 25, 0, 25)}
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Size = UDim2.new(0, 40, 0, 40)}
     ):Play()
+    task.wait(1)
     TweenService:Create(
         Cricle_2,
-        TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Rotation = 1000}
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Position = UDim2.new(1.58000004, 0, 0.5, 0)}
     ):Play()
-    wait(1)
-    TweenService:Create(
-        Cricle_3,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(3, 0, 0.5, 0)}
-    ):Play()
-    TweenService:Create(
-        Cricle_3,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Size = UDim2.new(0, 25, 0, 25)}
-    ):Play()
-    TweenService:Create(
-        Cricle_3,
-        TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Rotation = 1000}
-    ):Play()
-    wait(1)
+    task.wait(0.2)
     TweenService:Create(
         Cricle_4,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(4.28, 0, 0.5, 0)}
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Size = UDim2.new(0, 40, 0, 40)}
     ):Play()
+    task.wait(0.5)
     TweenService:Create(
         Cricle_4,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Size = UDim2.new(0, 25, 0, 25)}
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Position = UDim2.new(2.6500001, 0, 0.5, 0)}
     ):Play()
+    task.wait(0.2)
     TweenService:Create(
-        Cricle_4,
-        TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
+        Cricle_3,
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Size = UDim2.new(0, 35, 0, 35)}
+    ):Play()
+    task.wait(0.5)
+    TweenService:Create(
+        Cricle_3,
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Position = UDim2.new(3.6500001, 0, 0.5, 0)}
+    ):Play()
+    task.wait(.1)
+    TweenService:Create(
+        Cricle_3,
+        TweenInfo.new(tonumber(6), Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
         {Rotation = 1000}
     ):Play()
+
+    --- Close
+
     wait(3)
     TweenService:Create(
-        NameHub,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(0, -42, -4, 0)}
+        ImageLabel,
+        TweenInfo.new(tonumber(2), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Position = UDim2.new(-4.75555563, 0, 10, 0)}
     ):Play()
     TweenService:Create(
-        NameHub,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {TextTransparency = 1.00}
-    ):Play()
-    wait(0.5)
-    TweenService:Create(
-        Cricle,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(0.435000002, 0, -4.174999997, 0)}
+        ImageLabel,
+        TweenInfo.new(tonumber(2), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {ImageTransparency = 1.000}
     ):Play()
     TweenService:Create(
         Cricle,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {BackgroundTransparency = 1.00}
-    ):Play()
-    TweenService:Create(
-        Cricle_2,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(1.82, 0, -4, 0)}
-    ):Play()
-    TweenService:Create(
-        Cricle_2,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {BackgroundTransparency = 1.00}
-    ):Play()
-    TweenService:Create(
-        Cricle_3,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(3, 0, -4, 0)}
-    ):Play()
-    TweenService:Create(
-        Cricle_3,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {BackgroundTransparency = 1.00}
-    ):Play()
-    TweenService:Create(
-        Cricle_4,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(4.28, 0, -4, 0)}
-    ):Play()
-    TweenService:Create(
-        Cricle_4,
-        TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
-        {BackgroundTransparency = 1.00}
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        {Position = UDim2.new(0.435000002, 0, 10.174999997, 0)}
     ):Play()
     wait(1)
     TweenService:Create(
@@ -557,7 +536,7 @@ function Library:AddWindows(Config)
         TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
         {Position = UDim2.new(0.5, 0, 0.5, 0)}
     ):Play()
-
+end)
     Main.Name = "Main"
     Main.Parent = UniqueRemake
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -607,7 +586,7 @@ function Library:AddWindows(Config)
 
     Real.Name = "Real"
     Real.Parent = Navitional
-    Real.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Real.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
     Real.BackgroundTransparency = 0
     Real.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Real.BorderSizePixel = 0
@@ -666,7 +645,7 @@ function Library:AddWindows(Config)
     Poster_2.BorderSizePixel = 0
     Poster_2.Position = UDim2.new(0.619223654, 0, -0.0173913036, 0)
     Poster_2.Size = UDim2.new(0, 200, 0, 148)
-    Poster_2.Image = "rbxassetid://113060501714751"
+    Poster_2.Image = "rbxassetid://103514507593065"
 
     Desc.Name = "Desc"
     Desc.Parent = Poster
@@ -755,9 +734,9 @@ function Library:AddWindows(Config)
     Logo_5.BackgroundTransparency = 1.000
     Logo_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Logo_5.BorderSizePixel = 0
-    Logo_5.Position = UDim2.new(-0.0258780029, 0, -0.134615481, 0)
-    Logo_5.Size = UDim2.new(0, 83, 0, 52)
-    Logo_5.Image = "rbxassetid://108245805944053"
+    Logo_5.Position = UDim2.new(-0.007, 0,-0.06, 0)
+    Logo_5.Size = UDim2.new(0, 59, 0, 45)
+    Logo_5.Image = "rbxassetid://103514507593065"
     
     TabNhucac.Name = "Tab Nhu cac"
     TabNhucac.Parent = Top
@@ -883,6 +862,7 @@ function Library:AddWindows(Config)
         ConfigTab.Icon = ConfigTab.Icon or "rbxassetid://91159587283911"
 
         local TabKocogi = Instance.new("Frame")
+        local UIGradient_3 = Instance.new("UIGradient")
         local UICorner_3 = Instance.new("UICorner")
         local UIStroke_2 = Instance.new("UIStroke")
         local NameTab = Instance.new("Frame")
@@ -915,11 +895,12 @@ function Library:AddWindows(Config)
         local UIListLayout_4 = Instance.new("UIListLayout")
         local UIPadding_13 = Instance.new("UIPadding")
         local UIStroke_8 = Instance.new("UIStroke")
+        local UIGradient_2 = Instance.new("UIGradient")
 
         TabKocogi.Name = "Tab Ko co gi"
         TabKocogi.Parent = TabHolderThu2
         TabKocogi.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        TabKocogi.BackgroundTransparency = 0.930
+        TabKocogi.BackgroundTransparency = 0.830
         TabKocogi.BorderColor3 = Color3.fromRGB(0, 0, 0)
         TabKocogi.BorderSizePixel = 0
         TabKocogi.Position = UDim2.new(0, 0, 0.0526315793, 0)
@@ -950,12 +931,20 @@ function Library:AddWindows(Config)
             ):Play()
         end)
 
+        UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.61, Color3.fromRGB(86, 86, 86)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
+        UIGradient_3.Parent = TabKocogi
+
         UICorner_3.CornerRadius = UDim.new(0, 12)
         UICorner_3.Parent = TabKocogi
 
         UIStroke_2.Parent = TabKocogi
         UIStroke_2.Thickness = 2.000
+        UIStroke_2.Color = Color3.fromRGB(255, 255, 255)
         UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+        UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(35, 35, 35)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+        UIGradient_2.Rotation = 90
+        UIGradient_2.Parent = UIStroke_2
 
         NameTab.Name = "NameTab"
         NameTab.Parent = TabKocogi
@@ -1809,6 +1798,18 @@ function Library:AddWindows(Config)
                 for i, v in pairs(List:GetChildren()) do
                     if v.Name == "Options" then
                         if v.Title.Text == acc then
+                            for r, b in next, List:GetChildren() do
+                                if b.Name == "Options" then
+                                    b.BackgroundTransparency = 1.000
+                                end
+                            end
+                            for r, b in next, List:GetChildren() do
+                                if b.Name == "Options" then
+                                    b.Title.TextColor3 = Color3.fromRGB(144, 144, 144)
+                                end
+                            end
+                            v.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+                            v.BackgroundTransparency = 0.930
                             Title_6.Text = ConfigDropdown.Name .. " : " .. v.Title.Text
                             ConfigDropdown.Callback(v.Title.Text)
                         end
