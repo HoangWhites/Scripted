@@ -1735,7 +1735,7 @@ function Library:AddWindows(Config)
                         {Rotation = 180.000}
                     ):Play()
                 else
-                    Dropdown:TweenSize(UDim2.new(1, 0, 0, 20),"Out","Quad",0.3,true)
+                    Dropdown:TweenSize(UDim2.new(1, 0, 0, 30),"Out","Quad",0.3,true)
                     TweenService:Create(
                         Logo_4,
                         TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
