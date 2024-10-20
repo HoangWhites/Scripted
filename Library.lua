@@ -1892,7 +1892,10 @@ function Library:AddWindows(Config)
             UICorner_24.Parent = Real_2
 
             Real_2.FocusLost:Connect(function()
-				ConfigText.Callback(Real_2.Text)
+                TextBoxValue = Real_2.Text
+                TextBoxValue:gsub("```(.-)```", "%1")
+                Real_2.Text = TextBoxValue
+				ConfigText.Callback(TextBoxValue)
 			end)
         end
         function Features:AddLabel(Cc, ConfigLabel)
