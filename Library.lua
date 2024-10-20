@@ -238,14 +238,14 @@ function Library:AddNotify(ConfigNotify)
         TweenService:Create(
             NotifyReal,
             TweenInfo.new(tonumber(.2), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-            {Position = UDim2.new(0, -410, 1, -(NotifyPosHeigh) - 15)}
+            {Position = UDim2.new(0, -444, 1, -(NotifyPosHeigh) - 20)}
         ):Play()
         Time:TweenSize(UDim2.new(0, 0, 0, 1),"Out","Quad",tonumber(ConfigNotify.Time),true)
         task.wait(tonumber(ConfigNotify.Time))
         TweenService:Create(
             NotifyReal,
             TweenInfo.new(tonumber(.2), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-            {Position = UDim2.new(1, -0, 1, -(NotifyPosHeigh) - 15)}
+            {Position = UDim2.new(1, -0, 1, -(NotifyPosHeigh) - 20)}
         ):Play()
         task.wait(tonumber(2))
         NotifyFunc:Close()
