@@ -1727,7 +1727,7 @@ function Library:AddWindows(Config)
             UIListLayout_3.Padding = UDim.new(0, 5)
 
             Click.Activated:Connect(function()
-                if Dropdown.Size.Y.Offset <= 20 then
+                if Dropdown.Size.Y.Offset <= 30 then
                     Dropdown:TweenSize(UDim2.new(1, 0, 0, 141),"Out","Quad",0.3,true)
                     TweenService:Create(
                         Logo_4,
