@@ -306,12 +306,12 @@ function Library:AddWindows(Config)
     local CountTab = 1
     local AnimationGUI = Instance.new("Frame")
     local Cricle = Instance.new("Frame")
-    local UICorner = Instance.new("UICorner")
+    local UICorner_99999 = Instance.new("UICorner")
     local Cricle_2 = Instance.new("Frame")
-    local UICorner_2 = Instance.new("UICorner")
+    local UICorner_2222 = Instance.new("UICorner")
     local UIGradient = Instance.new("UIGradient")
     local Cricle_3 = Instance.new("Frame")
-    local UICorner_3 = Instance.new("UICorner")
+    local UICorner_9999999 = Instance.new("UICorner")
     local UIGradient_2 = Instance.new("UIGradient")
     local Cricle_4 = Instance.new("Frame")
     local UICorner_4 = Instance.new("UICorner")
@@ -387,8 +387,8 @@ spawn(function ()
     Cricle.Position = UDim2.new(0.435000002, 0, 0.174999997, 0)
     Cricle.Size = UDim2.new(0, 0, 0, 0)
 
-    UICorner.CornerRadius = UDim.new(1, 0)
-    UICorner.Parent = Cricle
+    UICorner_99999.CornerRadius = UDim.new(1, 0)
+    UICorner_99999.Parent = Cricle
 
     Cricle_2.Name = "Cricle"
     Cricle_2.Parent = Cricle
@@ -400,8 +400,8 @@ spawn(function ()
     Cricle_2.Size = UDim2.new(0, 0, 0, 0)
     -- UDim2.new(3.6500001, 0, 0.5, 0)
 
-    UICorner_2.CornerRadius = UDim.new(0, 6)
-    UICorner_2.Parent = Cricle_2
+    UICorner_2222.CornerRadius = UDim.new(0, 6)
+    UICorner_2222.Parent = Cricle_2
 
     UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.57, Color3.fromRGB(51, 51, 51)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
     UIGradient.Rotation = -45
@@ -417,8 +417,8 @@ spawn(function ()
     Cricle_3.Size = UDim2.new(0, 0, 0, 0)
     -- UDim2.new(1.58000004, 0, 0.5, 0)
 
-    UICorner_3.CornerRadius = UDim.new(0, 6)
-    UICorner_3.Parent = Cricle_3
+    UICorner_9999999.CornerRadius = UDim.new(0, 6)
+    UICorner_9999999.Parent = Cricle_3
 
     UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.57, Color3.fromRGB(51, 51, 51)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
     UIGradient_2.Rotation = -45
@@ -447,7 +447,7 @@ spawn(function ()
     ImageLabel.BackgroundTransparency = 1.000
     ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
     ImageLabel.BorderSizePixel = 0
-    ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+    ImageLabel.Position = UDim2.new(1.057, 0,0.75, 0)
     ImageLabel.Size = UDim2.new(0, 0, 0, 0)
     ImageLabel.Image = "rbxassetid://112223524096800"
     -- UDim2.new(-4.75555563, 0, -2, 0)
@@ -460,14 +460,13 @@ spawn(function ()
     task.wait(0.5)
     TweenService:Create(
         ImageLabel,
-        TweenInfo.new(tonumber(.1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+        TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
         {Size = UDim2.new(0, 375, 0, 240)}
     ):Play()
-    ImageLabel.AnchorPoint = Vector2.new(0, 0)
     TweenService:Create(
         ImageLabel,
         TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-        {Position = UDim2.new(-4.75555563, 0, -2, 0)}
+        {Position = UDim2.new(-0.633, 0,0.989, 0)}
     ):Play()
     task.wait(0.5)
     TweenService:Create(
@@ -1231,9 +1230,10 @@ end)
         local Features = {}
         function Features:AddSeperator(Cc, PutText)
             local Seperator = Instance.new("Frame")
-            local UICorner_11 = Instance.new("UICorner")
-            local Title_2 = Instance.new("TextLabel")
-            local UICorner_12 = Instance.new("UICorner")
+            local UICorner_21 = Instance.new("UICorner")
+            local Frame = Instance.new("Frame")
+            local Title_8 = Instance.new("TextLabel")
+            local UICorner_22 = Instance.new("UICorner")
         
             if Cc == 'Left' then
                 Choice = Left
@@ -1244,31 +1244,37 @@ end)
             Seperator.Name = "Seperator"
             Seperator.Parent = Choice
             Seperator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Seperator.BackgroundTransparency = 1.000
             Seperator.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Seperator.BorderSizePixel = 0
-            Seperator.Size = UDim2.new(1, 0, 0, 2)
-        
-            UICorner_11.Parent = Seperator
-        
-            Title_2.Name = "Title"
-            Title_2.Parent = Seperator
-            Title_2.AnchorPoint = Vector2.new(0.5, 0.5)
-            Title_2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-            Title_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            Title_2.BorderSizePixel = 0
-            Title_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-            Title_2.Size = UDim2.new(0, Title_2.TextBounds.X + 75, 0, 20)
-            Title_2.Font = Enum.Font.GothamBold
-            Title_2.Text = PutText
-            Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-            Title_2.TextSize = 14.000
-        
-            UICorner_12.CornerRadius = UDim.new(0, 4)
-            UICorner_12.Parent = Title_2
-        
-            Title_2:GetPropertyChangedSignal("TextBounds"):Connect(function()
-                Seperator.Size = UDim2.new(0, Title_2.TextBounds.X + 100, 0, 2)
-            end)
+            Seperator.Size = UDim2.new(1, 0, 0, 30)
+
+            UICorner_21.Parent = Seperator
+
+            Frame.Parent = Seperator
+            Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+            Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            Frame.BorderSizePixel = 0
+            Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+            Frame.Size = UDim2.new(1, 0, 0, 2)
+
+            Title_8.Name = "Title"
+            Title_8.Parent = Seperator
+            Title_8.AnchorPoint = Vector2.new(0.5, 0.5)
+            Title_8.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+            Title_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            Title_8.BorderSizePixel = 0
+            Title_8.Position = UDim2.new(0.5, 0, 0.5, 0)
+            Title_8.Size = UDim2.new(0, Title_2.TextBounds.X + 75, 0, 20)
+            Title_8.Font = Enum.Font.GothamBold
+            Title_8.Text = PutText
+            Title_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Title_8.TextSize = 14.000
+
+            UICorner_22.CornerRadius = UDim.new(0, 4)
+            UICorner_22.Parent = Title_8
+    
         end        
         function Features:AddToggle(Cc, ConfigToggle)
             ConfigToggle = ConfigToggle or {}
