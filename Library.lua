@@ -1321,7 +1321,7 @@ end)
             Title_3.Size = UDim2.new(1, -50, 1, 0)
             Title_3.Font = Enum.Font.GothamBold
             Title_3.Text = ConfigToggle.Name
-            Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Title_3.TextColor3 = Color3.fromRGB(177, 177, 177)
             Title_3.TextSize = 13.000
             Title_3.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -1379,7 +1379,7 @@ end)
             Click_5.TextColor3 = Color3.fromRGB(0, 0, 0)
             Click_5.TextSize = 14.000
 
-            Toggled = false
+            Toggled = ConfigToggle.Default
             function ToggleFunc:Set(Value)
                 if Value then
                     TweenService:Create(
@@ -1418,7 +1418,6 @@ end)
                 ConfigToggle.Callback(Toggled)
             end
 
-            Toggled = ConfigToggle.Default
             if ConfigToggle.Default == true then
                 ToggleFunc:Set(Toggled)
             end
