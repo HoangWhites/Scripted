@@ -1005,7 +1005,11 @@ end)
         Channel.MidImage = "rbxassetid://91241762908661"
         Channel.ScrollBarThickness = 1
         game:GetService("RunService").Stepped:Connect(function()
-            Channel.CanvasSize = UDim2.new(0, 0, 0, Left.Size.Y.Offset + 60)
+            if Left.Size.Y.Offset > Right.Size.Y.Offset then
+                Channel.CanvasSize = UDim2.new(0, 0, 0, Left.Size.Y.Offset + 60)
+            elseif Left.Size.Y.Offset < Right.Size.Y.Offset then
+                Channel.CanvasSize = UDim2.new(0, 0, 0, Right.Size.Y.Offset + 60)
+            end
         end)
 
         Click.Activated:Connect(function()
