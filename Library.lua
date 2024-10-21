@@ -1266,7 +1266,7 @@ end)
             Title_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Title_8.BorderSizePixel = 0
             Title_8.Position = UDim2.new(0.5, 0, 0.5, 0)
-            Title_8.Size = UDim2.new(0, Title_2.TextBounds.X + 75, 0, 20)
+            Title_8.Size = UDim2.new(0, Title_8.TextBounds.X + 75, 0, 20)
             Title_8.Font = Enum.Font.GothamBold
             Title_8.Text = PutText
             Title_8.TextColor3 = Color3.fromRGB(255, 255, 255)
