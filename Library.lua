@@ -4,6 +4,7 @@ local uis = game:GetService("UserInputService")
 local mouse = plr:GetMouse()
 local ParentGui = game.Players.LocalPlayer.PlayerGui -- or ParentGui
 local Library = {}
+isloaded = false
 
 makedraggable = function (topbar, object)
     local Dragging = false
@@ -1415,7 +1416,9 @@ end)
                     ):Play()
                 end
                 Toggled = Value
-                ConfigToggle.Callback(Toggled)
+                if isloaded then
+                    ConfigToggle.Callback(Toggled)
+                end
             end
 
             if ConfigToggle.Default == true then
@@ -1583,7 +1586,9 @@ end)
                 Value = math.clamp(Round(Value, 1), ConfigSlider.Min, ConfigSlider.Max)
                 SliderFunc.Value = Value
                 Box.Text = tostring(Value)
-                ConfigSlider.Callback(SliderFunc.Value)
+                if isloaded then
+                    ConfigSlider.Callback(SliderFunc.Value)
+                end
                 TweenService:Create(
                     Draggble,
                     TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
@@ -1598,7 +1603,9 @@ end)
             SliderFrame.InputEnded:Connect(function(Input) 
                 if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
                     Dragging = false 
-                    ConfigSlider.Callback(SliderFunc.Value)
+                    if isloaded then
+                        ConfigSlider.Callback(SliderFunc.Value)
+                    end
                 end 
             end)
             uis.InputChanged:Connect(function(Input)
@@ -1820,7 +1827,9 @@ end)
                             v.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
                             v.BackgroundTransparency = 0.930
                             Title_6.Text = ConfigDropdown.Name .. " : " .. v.Title.Text
-                            ConfigDropdown.Callback(v.Title.Text)
+                            if isloaded then
+                                ConfigDropdown.Callback(v.Title.Text)
+                            end
                         end
                     end
                 end
@@ -1838,7 +1847,9 @@ end)
 
             DropFunc:Refresh(ConfigDropdown.Options)
             DropFunc:Set(ConfigDropdown.Default)
-			ConfigDropdown.Callback(ConfigDropdown.Default)
+            if isloaded then
+                ConfigDropdown.Callback(ConfigDropdown.Default)
+            end
             return ConfigDropdown
         end
         function Features:AddTextbox(Cc, ConfigText)
@@ -1959,4 +1970,5 @@ end)
     end
     return Tabcre
 end
+isloaded = true
 return Library
