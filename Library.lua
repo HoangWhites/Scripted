@@ -4,7 +4,6 @@ local uis = game:GetService("UserInputService")
 local mouse = plr:GetMouse()
 local ParentGui = game.Players.LocalPlayer.PlayerGui -- or ParentGui
 local Library = {}
-isloaded = false
 
 makedraggable = function (topbar, object)
     local Dragging = false
@@ -452,7 +451,7 @@ spawn(function ()
     ImageLabel.Size = UDim2.new(0, 0, 0, 0)
     ImageLabel.Image = "rbxassetid://112223524096800"
     -- UDim2.new(-4.75555563, 0, -2, 0)
-    Main.Position = UDim2.new(0.5, 0, 1.5, 0)
+    Main.Position = UDim2.new(0.5, 0, -2, 0)
     TweenService:Create(
         Cricle,
         TweenInfo.new(tonumber(1), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
@@ -1416,9 +1415,7 @@ end)
                     ):Play()
                 end
                 Toggled = Value
-                if isloaded then
-                    ConfigToggle.Callback(Toggled)
-                end
+                ConfigToggle.Callback(Toggled)
             end
 
             if ConfigToggle.Default == true then
@@ -1586,9 +1583,7 @@ end)
                 Value = math.clamp(Round(Value, 1), ConfigSlider.Min, ConfigSlider.Max)
                 SliderFunc.Value = Value
                 Box.Text = tostring(Value)
-                if isloaded then
-                    ConfigSlider.Callback(SliderFunc.Value)
-                end
+                ConfigSlider.Callback(SliderFunc.Value)
                 TweenService:Create(
                     Draggble,
                     TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
@@ -1603,9 +1598,7 @@ end)
             SliderFrame.InputEnded:Connect(function(Input) 
                 if Input.UserInputType == Enum.UserInputType.MouseButton1 then 
                     Dragging = false 
-                    if isloaded then
-                        ConfigSlider.Callback(SliderFunc.Value)
-                    end
+                    ConfigSlider.Callback(SliderFunc.Value)
                 end 
             end)
             uis.InputChanged:Connect(function(Input)
@@ -1827,9 +1820,7 @@ end)
                             v.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
                             v.BackgroundTransparency = 0.930
                             Title_6.Text = ConfigDropdown.Name .. " : " .. v.Title.Text
-                            if isloaded then
-                                ConfigDropdown.Callback(v.Title.Text)
-                            end
+                            ConfigDropdown.Callback(v.Title.Text)
                         end
                     end
                 end
@@ -1847,9 +1838,7 @@ end)
 
             DropFunc:Refresh(ConfigDropdown.Options)
             DropFunc:Set(ConfigDropdown.Default)
-            if isloaded then
-                ConfigDropdown.Callback(ConfigDropdown.Default)
-            end
+			ConfigDropdown.Callback(ConfigDropdown.Default)
             return ConfigDropdown
         end
         function Features:AddTextbox(Cc, ConfigText)
@@ -1970,5 +1959,4 @@ end)
     end
     return Tabcre
 end
-isloaded = true
 return Library
