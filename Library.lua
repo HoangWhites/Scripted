@@ -368,7 +368,7 @@ function Library:AddWindows(Config)
             Main.Visible = true
         end
     end)
-spawn(function ()
+
     AnimationGUI.Name = "Animation GUI"
     AnimationGUI.Parent = UniqueRemake
     AnimationGUI.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -450,7 +450,8 @@ spawn(function ()
     ImageLabel.Position = UDim2.new(1.057, 0,0.75, 0)
     ImageLabel.Size = UDim2.new(0, 0, 0, 0)
     ImageLabel.Image = "rbxassetid://112223524096800"
-    -- UDim2.new(-4.75555563, 0, -2, 0)
+    
+    Main.AnchorPoint = Vector2.new(0.5, 0, 0.5, 0)
     Main.Position = UDim2.new(0.5, 0, -2, 0)
     TweenService:Create(
         Cricle,
@@ -511,8 +512,6 @@ spawn(function ()
         {Rotation = 1000}
     ):Play()
 
-    --- Close
-
     wait(3)
     TweenService:Create(
         ImageLabel,
@@ -535,7 +534,7 @@ spawn(function ()
         TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
         {Position = UDim2.new(0.5, 0, 0.5, 0)}
     ):Play()
-end)
+
     Main.Name = "Main"
     Main.Parent = UniqueRemake
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
