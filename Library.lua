@@ -330,6 +330,7 @@ function Library:AddWindows(Config)
     LogoConcat.BorderSizePixel = 0
     LogoConcat.Position = UDim2.new(0.0890538022, 0, 0.073170729, 0)
     LogoConcat.Size = UDim2.new(0, 45, 0, 45)
+    LogoConcat.Visible = false
 
     Logoed.Name = "Logoed"
     Logoed.Parent = LogoConcat
@@ -534,6 +535,7 @@ function Library:AddWindows(Config)
         TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut),
         {Position = UDim2.new(0.5, 0, 0.5, 0)}
     ):Play()
+    LogoConcat.Visible = true
 
     Main.Name = "Main"
     Main.Parent = UniqueRemake
