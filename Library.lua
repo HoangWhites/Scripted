@@ -481,7 +481,7 @@ function Library:AddWindows()
 	TabHolder.Size = UDim2.new(1, 0, 1, 0)
 	TabHolder.ScrollBarThickness = 0
     game:GetService("RunService").Stepped:Connect(function()
-        TabHolder.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X + 20, 0, 0)
+        TabHolder.CanvasSize = UDim2.new(0, 0, 0, AbsoluteContentSize.Y + 20)
     end)
 
 	UIPadding.Parent = TabHolder
@@ -771,7 +771,7 @@ function Library:AddWindows()
 		Channel_2.ScrollBarThickness = 0
 		Channel_2.LayoutOrder = CountTab
         game:GetService("RunService").Stepped:Connect(function()
-            Channel_2.CanvasSize = UDim2.new(0, UIListLayout_2.AbsoluteContentSize.X + 20, 0, 0)
+            Channel_2.CanvasSize = UDim2.new(0, 0, 0, UIListLayout_2.AbsoluteContentSize.Y + 20)
         end)
 
 		UIListLayout_2.Parent = Channel_2
