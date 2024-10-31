@@ -481,7 +481,7 @@ function Library:AddWindows()
 	TabHolder.Size = UDim2.new(1, 0, 1, 0)
 	TabHolder.ScrollBarThickness = 0
     game:GetService("RunService").Stepped:Connect(function()
-        TabHolder.CanvasSize = UDim2.new(0, 0, 0, AbsoluteContentSize.Y + 20)
+        TabHolder.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 20)
     end)
 
 	UIPadding.Parent = TabHolder
@@ -578,7 +578,7 @@ function Library:AddWindows()
 	Dev.Position = UDim2.new(0.436194897, 0, 0.36311239, 0)
 	Dev.Size = UDim2.new(0, 255, 0, 50)
 	Dev.Font = Enum.Font.GothamBold
-	Dev.Text = "Dev: Khanh, Susano, Rise, Resuralツ\\n"
+	Dev.Text = "Dev: Khanh, Susano, Rise, Resuralツ\n"
 	Dev.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Dev.TextSize = 17.000
 	Dev.TextWrapped = true
@@ -706,7 +706,7 @@ function Library:AddWindows()
 	TextLabel.Position = UDim2.new(0.0412148386, 0, -0.129408911, 0)
 	TextLabel.Size = UDim2.new(0, 231, 0, 151)
 	TextLabel.Font = Enum.Font.GothamBold
-	TextLabel.Text = "- Update New GUI\\n- Added Fast Attack SuperFast\\n- Fixed Level Farm\\n- Fixed Cake Prince\\n- Fixed Auto Bones\\n- Fixed Tween\\n- Added Instance Tween To Mirror"
+	TextLabel.Text = "- Update New GUI\n- Added Fast Attack SuperFast\n- Fixed Level Farm\n- Fixed Cake Prince\n- Fixed Auto Bones\n- Fixed Tween\n- Added Instance Tween To Mirror"
 	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 	TextLabel.TextSize = 16.000
 	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
