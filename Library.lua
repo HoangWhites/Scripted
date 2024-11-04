@@ -1313,7 +1313,7 @@ function Library:AddWindows()
 			local UICorner_11 = Instance.new("UICorner")
 			local Title_4 = Instance.new("TextLabel")
 			local UIPadding_10 = Instance.new("UIPadding")
-			local SliderFrame = Instance.new("TextButton")
+			local SliderFrame = Instance.new("Frame")
 			local UICorner_12 = Instance.new("UICorner")
 			local Draggable = Instance.new("Frame")
 			local UICorner_13 = Instance.new("UICorner")
@@ -1425,19 +1425,22 @@ function Library:AddWindows()
                     {Size = UDim2.fromScale((Value - Config.Min) / (Config.Max - Config.Min), 1)}
                 ):Play()
             end
-            SliderFrame.Activated:Connect(function()
-				Dragging = true
-			end)
-			SliderFrame.MouseLeave:Connect(function()
-				Dragging = false
-				Config.Callback(SliderFunc.Value)
-			end)
-            uis.InputChanged:Connect(function(Input)
-                if Dragging and Input.UserInputType == Enum.UserInputType.MouseMovement then 
-                    local SizeScale = math.clamp((Input.Position.X - SliderFrame.AbsolutePosition.X) / SliderFrame.AbsoluteSize.X, 0, 1)
-                    SliderFunc:Set(Config.Min + ((Config.Max - Config.Min) * SizeScale)) 
+            SliderFrame.InputBegan:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    dragging = true
                 end
             end)
+            uis.InputEnded:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    dragging = false
+                end
+            end)            
+            uis.InputChanged:Connect(function(input)
+                if dragging then
+                    local SizeScale = math.clamp((input.Position.X - SliderFrame.AbsolutePosition.X) / SliderFrame.AbsoluteSize.X, 0, 1)
+                    SliderFunc:Set(cf.Min + ((cf.Max - cf.Min) * SizeScale)) 
+                end
+            end)            
 			TextLabel_4:GetPropertyChangedSignal("Text"):Connect(function()
 				local Valid = TextLabel_4.Text:gsub("[^%d]", "")
 				if Valid ~= "" then
