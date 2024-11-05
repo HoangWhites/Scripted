@@ -1391,10 +1391,6 @@ function Library:AddWindows()
 			SliderFrame.BorderSizePixel = 0
 			SliderFrame.Position = UDim2.new(0, 7, 0, 26)
 			SliderFrame.Size = UDim2.new(0, 325, 0, 8)
-			SliderFrame.Font = Enum.Font.SourceSans
-			SliderFrame.Text = ""
-			SliderFrame.TextColor3 = Color3.fromRGB(0, 0, 0)
-			SliderFrame.TextSize = 14.000
 			SliderFrame.BackgroundTransparency = 1.00
 
 			Ngunat.Name = "Draggable"
