@@ -288,18 +288,19 @@ function Library:AddWindows()
 	local TimeElapsed = Instance.new("TextLabel")
 	local Belis = Instance.new("TextLabel")
 	local TimeElapsed_2 = Instance.new("TextLabel")
+	local TimeElapsed_3 = Instance.new("TextLabel")
 	local Features = Instance.new("ImageLabel")
 	local DropShadowHolder_2 = Instance.new("Frame")
 	local DropShadow_2 = Instance.new("ImageLabel")
 	local CountTab = 1
 
 	UserInterface.Name = "User Interface"
-	UserInterface.Parent = Whites
+	UserInterface.Parent = Main
 	UserInterface.AnchorPoint = Vector2.new(0.5, 0.5)
 	UserInterface.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
 	UserInterface.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	UserInterface.BorderSizePixel = 0
-	UserInterface.Position = UDim2.new(1.810000002, 0, 0.5, 0)
+	UserInterface.Position = UDim2.new(1.34000003, 0, 0.5, 0)
 	UserInterface.Size = UDim2.new(0, 350, 0, 359)
 
 	UICorner_20.CornerRadius = UDim.new(0, 12)
@@ -362,7 +363,8 @@ function Library:AddWindows()
 	TimeElapsed.Text = "Time Elapsed : 0H 0M 0S"
 	TimeElapsed.TextColor3 = Color3.fromRGB(255, 255, 255)
 	TimeElapsed.TextSize = 17.000
-	
+	TimeElapsed.TextXAlignment = Enum.TextXAlignment.Left
+
 	function getElapsedTime(startTime)
 		local elapsedTime = tick() - startTime
 		local hours = math.floor(elapsedTime / 3600)
@@ -375,7 +377,6 @@ function Library:AddWindows()
 	game:GetService("RunService").Stepped:Connect(function()
 		TimeElapsed.Text = "Time Elapsed : " ..getElapsedTime(startTime)
 	end)
-	
 
 	Belis.Name = "Belis"
 	Belis.Parent = UserFace
@@ -387,9 +388,15 @@ function Library:AddWindows()
 	Belis.Size = UDim2.new(0, 200, 0, 50)
 	Belis.Font = Enum.Font.GothamBold
 	Belis.Text = "Player Belis : 100000000"
-	Belis.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Belis.TextColor3 = Color3.fromRGB(255, 255, 35)
 	Belis.TextSize = 17.000
 	Belis.TextXAlignment = Enum.TextXAlignment.Left
+
+	function AutoSetBeli()
+		while wait() do
+			Belis.Text = "Player Beli : ".. plr.Data.Beli.Value  
+		end
+	end
 
 	TimeElapsed_2.Name = "Time Elapsed"
 	TimeElapsed_2.Parent = UserFace
@@ -397,13 +404,39 @@ function Library:AddWindows()
 	TimeElapsed_2.BackgroundTransparency = 1.000
 	TimeElapsed_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	TimeElapsed_2.BorderSizePixel = 0
-	TimeElapsed_2.Position = UDim2.new(-0.400000006, 0, 2.04999995, 0)
+	TimeElapsed_2.Position = UDim2.new(-0.400000006, 0, 2.3499999, 0)
 	TimeElapsed_2.Size = UDim2.new(0, 200, 0, 50)
 	TimeElapsed_2.Font = Enum.Font.GothamBold
 	TimeElapsed_2.Text = "Bounty : 300000000"
 	TimeElapsed_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 	TimeElapsed_2.TextSize = 17.000
 	TimeElapsed_2.TextXAlignment = Enum.TextXAlignment.Left
+
+	function AutoSetBounty()
+		while wait() do
+			Belis.Text = "Bounty : ".. plr.leaderstats["Bounty/Honor"].Value 
+		end
+	end
+
+	TimeElapsed_3.Name = "Time Elapsed"
+	TimeElapsed_3.Parent = UserFace
+	TimeElapsed_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TimeElapsed_3.BackgroundTransparency = 1.000
+	TimeElapsed_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TimeElapsed_3.BorderSizePixel = 0
+	TimeElapsed_3.Position = UDim2.new(-0.400000006, 0, 2.04999995, 0)
+	TimeElapsed_3.Size = UDim2.new(0, 200, 0, 50)
+	TimeElapsed_3.Font = Enum.Font.GothamBold
+	TimeElapsed_3.Text = "Fragments : 100000000"
+	TimeElapsed_3.TextColor3 = Color3.fromRGB(255, 56, 222)
+	TimeElapsed_3.TextSize = 17.000
+	TimeElapsed_3.TextXAlignment = Enum.TextXAlignment.Left
+
+	function AutoSetBounty()
+		while wait() do
+			Belis.Text = "Bounty : ".. plr.Data.Fragments.Value
+		end
+	end
 
 	Features.Name = "Features"
 	Features.Parent = UserInterface
@@ -1427,18 +1460,18 @@ function Library:AddWindows()
             end
             SliderFrame.InputBegan:Connect(function(input)
                 if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
-                    dragging = true
+                    Dragging = true
                 end
             end)
             uis.InputEnded:Connect(function(input)
                 if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
-                    dragging = false
+                    Dragging = false
                 end
             end)            
             uis.InputChanged:Connect(function(input)
-                if dragging then
+                if Dragging then
                     local SizeScale = math.clamp((input.Position.X - SliderFrame.AbsolutePosition.X) / SliderFrame.AbsoluteSize.X, 0, 1)
-                    SliderFunc:Set(cf.Min + ((cf.Max - cf.Min) * SizeScale)) 
+                    SliderFunc:Set(Config.Min + ((Config.Max - Config.Min) * SizeScale)) 
                 end
             end)            
 			TextLabel_4:GetPropertyChangedSignal("Text"):Connect(function()
