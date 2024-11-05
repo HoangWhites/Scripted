@@ -254,6 +254,12 @@ function Library:AddWindows()
 	local UIListLayout = Instance.new("UIListLayout")
 	local LayoutChannel = Instance.new("Frame")
 	local Synigga = Instance.new("Frame")
+	local CallbackUI = Instance.new("Frame")
+	local UICorner_23 = Instance.new("UICorner")
+	local Icon_5 = Instance.new("ImageLabel")
+	local Click_7 = Instance.new("TextButton")
+	local DropShadowHolder_3 = Instance.new("Frame")
+	local DropShadow_3 = Instance.new("ImageLabel")
 	local Nguu = Instance.new("Folder")
 	local UIPageLayout = Instance.new("UIPageLayout")
 	local Channel = Instance.new("Frame")
@@ -293,6 +299,66 @@ function Library:AddWindows()
 	local DropShadowHolder_2 = Instance.new("Frame")
 	local DropShadow_2 = Instance.new("ImageLabel")
 	local CountTab = 1
+
+	CallbackUI.Name = "CallbackUI"
+	CallbackUI.Parent = Whites
+	CallbackUI.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+	CallbackUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	CallbackUI.BorderSizePixel = 0
+	CallbackUI.Position = UDim2.new(0.0649854541, 0, 0.119918697, 0)
+	CallbackUI.Size = UDim2.new(0, 60, 0, 60)
+
+	UICorner_23.Parent = CallbackUI
+
+	Icon_5.Name = "Icon"
+	Icon_5.Parent = CallbackUI
+	Icon_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Icon_5.BackgroundTransparency = 1.000
+	Icon_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Icon_5.BorderSizePixel = 0
+	Icon_5.Size = UDim2.new(1, 0, 1, 0)
+	Icon_5.Image = "rbxassetid://77369467061566"
+
+	Click_7.Name = "Click"
+	Click_7.Parent = CallbackUI
+	Click_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Click_7.BackgroundTransparency = 1.000
+	Click_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Click_7.BorderSizePixel = 0
+	Click_7.Size = UDim2.new(1, 0, 1, 0)
+	Click_7.Font = Enum.Font.SourceSans
+	Click_7.Text = ""
+	Click_7.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Click_7.TextSize = 14.000
+	Click_7.Activated:Connect(function()
+		if Main.Visible == true then
+			Main.Visible = false
+			UserInterface.Visible = false
+		else
+			Main.Visible = true
+			UserInterface.Visible = true
+		end
+	end)
+	DropShadowHolder_3.Name = "DropShadowHolder"
+	DropShadowHolder_3.Parent = CallbackUI
+	DropShadowHolder_3.BackgroundTransparency = 1.000
+	DropShadowHolder_3.BorderSizePixel = 0
+	DropShadowHolder_3.Size = UDim2.new(1, 0, 1, 0)
+	DropShadowHolder_3.ZIndex = 0
+
+	DropShadow_3.Name = "DropShadow"
+	DropShadow_3.Parent = DropShadowHolder_3
+	DropShadow_3.AnchorPoint = Vector2.new(0.5, 0.5)
+	DropShadow_3.BackgroundTransparency = 1.000
+	DropShadow_3.BorderSizePixel = 0
+	DropShadow_3.Position = UDim2.new(0.5, 0, 0.5, 0)
+	DropShadow_3.Size = UDim2.new(1, 47, 1, 47)
+	DropShadow_3.ZIndex = 0
+	DropShadow_3.Image = "rbxassetid://6015897843"
+	DropShadow_3.ImageColor3 = Color3.fromRGB(0, 0, 0)
+	DropShadow_3.ImageTransparency = 0.500
+	DropShadow_3.ScaleType = Enum.ScaleType.Slice
+	DropShadow_3.SliceCenter = Rect.new(49, 49, 450, 450)
 
 	UserInterface.Name = "User Interface"
 	UserInterface.Parent = Main
