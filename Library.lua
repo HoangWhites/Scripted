@@ -300,7 +300,7 @@ function Library:AddWindows()
 	UserInterface.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
 	UserInterface.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	UserInterface.BorderSizePixel = 0
-	UserInterface.Position = UDim2.new(1.34000003, 0, 0.5, 0)
+	UserInterface.Position = UDim2.new(4.34000003, 0, 0.5, 0)
 	UserInterface.Size = UDim2.new(0, 350, 0, 359)
 
 	UICorner_20.CornerRadius = UDim.new(0, 12)
@@ -392,10 +392,8 @@ function Library:AddWindows()
 	Belis.TextSize = 17.000
 	Belis.TextXAlignment = Enum.TextXAlignment.Left
 
-	function AutoSetBeli()
-		while wait() do
-			Belis.Text = "Player Beli : ".. plr.Data.Beli.Value  
-		end
+	function Library:AutoSetBeli()
+		Belis.Text = "Player Beli : ".. plr.Data.Beli.Value  
 	end
 
 	TimeElapsed_2.Name = "Time Elapsed"
@@ -412,10 +410,8 @@ function Library:AddWindows()
 	TimeElapsed_2.TextSize = 17.000
 	TimeElapsed_2.TextXAlignment = Enum.TextXAlignment.Left
 
-	function AutoSetBounty()
-		while wait() do
-			TimeElapsed_2.Text = "Bounty : ".. plr.leaderstats["Bounty/Honor"].Value 
-		end
+	function Library:AutoSetBounty()
+		TimeElapsed_2.Text = "Bounty : ".. plr.leaderstats["Bounty/Honor"].Value 
 	end
 
 	TimeElapsed_3.Name = "Time Elapsed"
@@ -432,10 +428,8 @@ function Library:AddWindows()
 	TimeElapsed_3.TextSize = 17.000
 	TimeElapsed_3.TextXAlignment = Enum.TextXAlignment.Left
 
-	function AutoSetFragments()
-		while wait() do
-			TimeElapsed_3.Text = "Fragments : ".. plr.Data.Fragments.Value
-		end
+	function Library:AutoSetFragments()
+		TimeElapsed_3.Text = "Fragments : ".. plr.Data.Fragments.Value
 	end
 
 	Features.Name = "Features"
@@ -682,7 +676,7 @@ function Library:AddWindows()
 			TweenService:Create(
 				UserInterface,
 				TweenInfo.new(tonumber(.2), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-				{Position = UDim2.new(0.810000002, 0, 0.5, 0)}
+				{Position = UDim2.new(1.34000003, 0, 0.5, 0)}
 			):Play()
 			Bulon = true
 		else
@@ -700,7 +694,7 @@ function Library:AddWindows()
 			TweenService:Create(
 				UserInterface,
 				TweenInfo.new(tonumber(.2), Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-				{Position = UDim2.new(1.810000002, 0, 0.5, 0)}
+				{Position = UDim2.new(4.810000002, 0, 0.5, 0)}
 			):Play()
 		end
 	end)
