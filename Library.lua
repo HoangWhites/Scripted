@@ -414,7 +414,7 @@ function Library:AddWindows()
 
 	function AutoSetBounty()
 		while wait() do
-			Belis.Text = "Bounty : ".. plr.leaderstats["Bounty/Honor"].Value 
+			TimeElapsed_2.Text = "Bounty : ".. plr.leaderstats["Bounty/Honor"].Value 
 		end
 	end
 
@@ -432,9 +432,9 @@ function Library:AddWindows()
 	TimeElapsed_3.TextSize = 17.000
 	TimeElapsed_3.TextXAlignment = Enum.TextXAlignment.Left
 
-	function AutoSetBounty()
+	function AutoSetFragments()
 		while wait() do
-			Belis.Text = "Bounty : ".. plr.Data.Fragments.Value
+			TimeElapsed_3.Text = "Fragments : ".. plr.Data.Fragments.Value
 		end
 	end
 
