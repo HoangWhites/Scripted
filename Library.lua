@@ -510,6 +510,9 @@ function Library:AddWindows()
     TabHolder.Position = UDim2.new(0.5, 0, 0.5, 0)
     TabHolder.Size = UDim2.new(1, -5, 1, -5)
     TabHolder.ScrollBarThickness = 0
+    game:GetService("RunService").Stepped:Connect(function ()
+        TabHolder.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 20)
+    end)
 
     UIPadding.Parent = TabHolder
     UIPadding.PaddingBottom = UDim.new(0, 2)
@@ -576,6 +579,9 @@ function Library:AddWindows()
         Channel.Size = UDim2.new(1, 0, 1, 0)
         Channel.ScrollBarThickness = 0
         Channel.LayoutOrder = CountTab
+        game:GetService("RunService").Stepped:Connect(function ()
+            Channel.CanvasSize = UDim2.new(0, 0, 0, UIListLayout_2.AbsoluteContentSize.Y + 20)
+        end)
     
         UIListLayout_2.Parent = Channel
         UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
@@ -745,7 +751,7 @@ function Library:AddWindows()
             Description1.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Description1.BorderSizePixel = 0
             Description1.Position = UDim2.new(0, 7, 0, 19)
-            Description1.Size = UDim2.new(1, 0, 0, 26)
+            Description1.Size = UDim2.new(1, -40, 0, 26)
             Description1.Font = Enum.Font.GothamBold
             Description1.Text = cf.Description
             Description1.TextColor3 = Color3.fromRGB(144, 144, 144)
@@ -856,7 +862,7 @@ function Library:AddWindows()
             Description_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Description_2.BorderSizePixel = 0
             Description_2.Position = UDim2.new(0, 7, 0, 19)
-            Description_2.Size = UDim2.new(1, 0, 0, 26)
+            Description_2.Size = UDim2.new(1, -40, 0, 26)
             Description_2.Font = Enum.Font.GothamBold
             Description_2.Text = cf.Description
             Description_2.TextColor3 = Color3.fromRGB(144, 144, 144)
@@ -1524,7 +1530,7 @@ function Library:AddWindows()
             Description_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Description_3.BorderSizePixel = 0
             Description_3.Position = UDim2.new(0, 7, 0, 19)
-            Description_3.Size = UDim2.new(1, 0, 0, 26)
+            Description_3.Size = UDim2.new(1, -40, 0, 26)
             Description_3.Font = Enum.Font.GothamBold
             Description_3.Text = cf.Description
             Description_3.TextColor3 = Color3.fromRGB(144, 144, 144)
@@ -1779,7 +1785,7 @@ function Library:AddWindows()
             Description_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Description_4.BorderSizePixel = 0
             Description_4.Position = UDim2.new(0, 7, 0, 19)
-            Description_4.Size = UDim2.new(1, 0, 0, 26)
+            Description_4.Size = UDim2.new(1, -40, 0, 26)
             Description_4.Font = Enum.Font.GothamBold
             Description_4.Text = cf.Description
             Description_4.TextColor3 = Color3.fromRGB(144, 144, 144)
@@ -1856,7 +1862,7 @@ function Library:AddWindows()
             Description_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
             Description_5.BorderSizePixel = 0
             Description_5.Position = UDim2.new(0, 7, 0, 19)
-            Description_5.Size = UDim2.new(1, 0, 0, 26)
+            Description_5.Size = UDim2.new(1, -50, 0, 26)
             Description_5.Font = Enum.Font.GothamBold
             Description_5.Text = cf.Description
             Description_5.TextColor3 = Color3.fromRGB(144, 144, 144)
