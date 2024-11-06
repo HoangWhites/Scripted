@@ -372,7 +372,7 @@ function Library:AddWindows()
     local ChangeSized = Instance.new("Frame")
 
     ChangeSized.Name = "ChangeSized"
-    ChangeSized.Parent = game.StarterGui.MainScreen.Main
+    ChangeSized.Parent = MainScreen
     ChangeSized.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     ChangeSized.BackgroundTransparency = 1.000
     ChangeSized.BorderColor3 = Color3.fromRGB(0, 0, 0)
