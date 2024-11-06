@@ -1,52 +1,145 @@
 local TweenService = game:service"TweenService"
 local plr = game.Players.LocalPlayer
 local uis = game:GetService("UserInputService")
-local mouse = plr:GetMouse()
+local Mouse = plr:GetMouse()
 local ParentGui = game.Players.LocalPlayer.PlayerGui -- or ParentGui
 local Library = {}
 
-makedraggable = function (topbar, object)
-    local Dragging = false
-    local DragInput = nil
-    local DragStart = nil
-    local PositionStart = nil
+local function makedraggable(topbarobject, object)
+	local function CustomPos(topbarobject, object)
+		local Dragging = nil
+		local DragInput = nil
+		local DragStart = nil
+		local StartPosition = nil
 
-    local function Update(input)
-        local Delta = input.Position - DragStart
-        local newPos = UDim2.new(
-            PositionStart.X.Scale,
-            PositionStart.X.Offset + Delta.X,
-            PositionStart.Y.Scale,
-            PositionStart.Y.Offset + Delta.Y
-        )
-        object.Position = newPos
-    end
+		local function UpdatePos(input)
+			local Delta = input.Position - DragStart
+            local newPos = UDim2.new(
+                StartPosition.X.Scale,
+                StartPosition.X.Offset + Delta.X,
+                StartPosition.Y.Scale,
+                StartPosition.Y.Offset + Delta.Y
+            )
+            object.Position = newPos
+		end
 
-    topbar.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-            Dragging = true
-            DragStart = input.Position
-            PositionStart = object.Position
+		topbarobject.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				Dragging = true
+				DragStart = input.Position
+				StartPosition = object.Position
 
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    Dragging = false
-                end
-            end)
-        end
-    end)
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						Dragging = false
+					end
+				end)
+			end
+		end)
 
-    topbar.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-            DragInput = input
-        end
-    end)
+		topbarobject.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				DragInput = input
+			end
+		end)
 
-    uis.InputChanged:Connect(function(input)
-        if input == DragInput and Dragging then
-            Update(input)
-        end
-    end)
+		uis.InputChanged:Connect(function(input)
+			if input == DragInput and Dragging then
+				UpdatePos(input)
+			end
+		end)
+	end
+	local function CustomSize(object)
+		local Dragging = false
+		local DragInput = nil
+		local DragStart = nil
+		local StartSize = nil
+		local maxSizeX = object.Size.X.Offset
+		local maxSizeY = object.Size.Y.Offset
+		object.Size = UDim2.new(0, maxSizeX, 0, maxSizeY)
+		local changesizeobject = Instance.new("Frame");
+
+		changesizeobject.AnchorPoint = Vector2.new(1, 1)
+		changesizeobject.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		changesizeobject.BackgroundTransparency = 0.9990000128746033
+		changesizeobject.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		changesizeobject.BorderSizePixel = 0
+		changesizeobject.Position = UDim2.new(1, 20, 1, 20)
+		changesizeobject.Size = UDim2.new(0, 40, 0, 40)
+		changesizeobject.Name = "changesizeobject"
+		changesizeobject.Parent = object
+
+		local function UpdateSize(input)
+			local Delta = input.Position - DragStart
+			local newWidth = StartSize.X.Offset + Delta.X
+			local newHeight = StartSize.Y.Offset + Delta.Y
+			newWidth = math.max(newWidth, maxSizeX)
+			newHeight = math.max(newHeight, maxSizeY)
+			local Tween = TweenService:Create(object, TweenInfo.new(0.2), {Size = UDim2.new(0, newWidth, 0, newHeight)})
+			Tween:Play()
+		end
+
+		changesizeobject.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				Dragging = true
+				DragStart = input.Position
+				StartSize = object.Size
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						Dragging = false
+					end
+				end)
+			end
+		end)
+
+		changesizeobject.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				DragInput = input
+			end
+		end)
+
+		uis.InputChanged:Connect(function(input)
+			if input == DragInput and Dragging then
+				UpdateSize(input)
+			end
+		end)
+	end
+	CustomSize(object)
+	CustomPos(topbarobject, object)
+end
+function CircleClick(Button, X, Y)
+	spawn(function()
+		Button.ClipsDescendants = true
+		local Circle = Instance.new("ImageLabel")
+		Circle.Image = "rbxassetid://266543268"
+		Circle.ImageColor3 = Color3.fromRGB(80, 80, 80)
+		Circle.ImageTransparency = 0.8999999761581421
+		Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Circle.BackgroundTransparency = 1
+		Circle.ZIndex = 10
+		Circle.Name = "Circle"
+		Circle.Parent = Button
+		
+		local NewX = X - Circle.AbsolutePosition.X
+		local NewY = Y - Circle.AbsolutePosition.Y
+		Circle.Position = UDim2.new(0, NewX, 0, NewY)
+		local Size = 0
+		if Button.AbsoluteSize.X > Button.AbsoluteSize.Y then
+			Size = Button.AbsoluteSize.X*1.5
+		elseif Button.AbsoluteSize.X < Button.AbsoluteSize.Y then
+			Size = Button.AbsoluteSize.Y*1.5
+		elseif Button.AbsoluteSize.X == Button.AbsoluteSize.Y then
+			Size = Button.AbsoluteSize.X*1.5
+		end
+
+		local Time = 0.5
+		Circle:TweenSizeAndPosition(UDim2.new(0, Size, 0, Size), UDim2.new(0.5, -Size/2, 0.5, -Size/2), "Out", "Quad", Time, false, nil)
+		for i=1,10 do
+			Circle.ImageTransparency = Circle.ImageTransparency + 0.01
+			wait(Time/10)
+		end
+		Circle:Destroy()
+	end)
 end
 
 function Library:AddNotify(ConfigNotify)
@@ -276,6 +369,16 @@ function Library:AddWindows()
     local Clicked_9 = Instance.new("ImageButton")
     local UICorner_33 = Instance.new("UICorner")
     local UIStroke_15 = Instance.new("UIStroke")
+    local ChangeSized = Instance.new("Frame")
+
+    ChangeSized.Name = "ChangeSized"
+    ChangeSized.Parent = game.StarterGui.MainScreen.Main
+    ChangeSized.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ChangeSized.BackgroundTransparency = 1.000
+    ChangeSized.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    ChangeSized.BorderSizePixel = 0
+    ChangeSized.Position = UDim2.new(1, -20, 1, -20)
+    ChangeSized.Size = UDim2.new(0, 30, 0, 30)
 
     MainScreen.Name = "MainScreen"
     MainScreen.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -430,6 +533,7 @@ function Library:AddWindows()
     Clicked_9.Size = UDim2.new(1, 0, 1, 0)
     Clicked_9.Image = "rbxassetid://105332563796698"
     Clicked_9.Activated:Connect(function()
+        CircleClick(Clicked_9, Mouse.X, Mouse.Y)
         if Main.Size.Y.Offset <= 0 then
             UIStroke.Enabled = true
             TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 500, 0, 300)}):Play()
@@ -641,6 +745,7 @@ function Library:AddWindows()
         Click_2.TextColor3 = Color3.fromRGB(0, 0, 0)
         Click_2.TextSize = 14.000
         Click_2.Activated:Connect(function()
+            CircleClick(Click_2, Mouse.X, Mouse.Y)
             for r, v in pairs(TabHolder:GetChildren()) do
                 if v.Name == "Tab Disable" then
                     TweenService:Create(v, TweenInfo.new(.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundTransparency = 1.000}):Play()
@@ -787,8 +892,7 @@ function Library:AddWindows()
             Clicked.TextColor3 = Color3.fromRGB(0, 0, 0)
             Clicked.TextSize = 14.000
             Clicked.Activated:Connect(function()
-                Button.BackgroundTransparency = 0.700
-                TweenService:Create(Button, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.930}):Play()
+                CircleClick(Clicked, Mouse.X, Mouse.Y)
                 cf.Callback()
             end)
         end
@@ -1059,11 +1163,13 @@ function Library:AddWindows()
                 UIPadding_4.PaddingTop = UDim.new(0, 7)
 
                 Clicked_3.Activated:Connect(function()
+                    CircleClick(Clicked_3, Mouse.X, Mouse.Y)
                     Clicked_2.Active = false
                     TweenService:Create(ToggleSetting, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, -220, 1, -40)}):Play()
                 end)
 
                 Clicked_7.Activated:Connect(function()
+                    CircleClick(Clicked_7, Mouse.X, Mouse.Y)
                     Clicked_2.Active = true
                     TweenService:Create(ToggleSetting, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 1, -40)}):Play()
                 end)
@@ -1089,6 +1195,7 @@ function Library:AddWindows()
             end
 
             Clicked_2.Activated:Connect(function()
+                CircleClick(Clicked_2, Mouse.X, Mouse.Y)
                 Toggled = not Toggled
                 ToggleFunc:Set(Toggled)
             end)
@@ -1203,6 +1310,7 @@ function Library:AddWindows()
                 end
 
                 Clicked_8.Activated:Connect(function()
+                    CircleClick(Clicked_8, Mouse.X, Mouse.Y)
                     NiggaToggled = not NiggaToggled
                     ToggleSettingsFunc:Set(NiggaToggled)
                 end)
@@ -1609,6 +1717,7 @@ function Library:AddWindows()
             end)
 
             Clicked_4.Activated:Connect(function()
+                CircleClick(Clicked_4, Mouse.X, Mouse.Y)
                 if Dropdown.Size.Y.Offset <= 45 then
                     Dropdown:TweenSize(UDim2.new(1, 0, 0, 145),"Out","Quad",0.3,true)
                     TweenService:Create(Icon_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Rotation = 0}):Play()
