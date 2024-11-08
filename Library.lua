@@ -656,6 +656,7 @@ function Library:AddWindows()
     UIPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
     UIPageLayout.Padding = UDim.new(0, 12)
     UIPageLayout.TweenTime = 0.480
+    UIPageLayout.ScrollWheelInputEnabled = false
     
     makedraggable(Top, Main)
     local CountTab = 0
@@ -1429,7 +1430,7 @@ function Library:AddWindows()
                         local SizeScale = math.clamp((input.Position.X - SliderFrame_2.AbsolutePosition.X) / SliderFrame_2.AbsoluteSize.X, 0, 1)
                         Slider1:Set(cfslider.Min + ((cfslider.Max - cfslider.Min) * SizeScale)) 
                     end
-                end)            
+                end)        
                 Slider1:Set(cfslider.Default)
                 return Slider1
             end
@@ -2012,7 +2013,7 @@ function Library:AddWindows()
             RealInput.PlaceholderColor3 = Color3.fromRGB(144, 144, 144)
             RealInput.PlaceholderText = cf.PlaceholderText
             RealInput.Text = cf.Default
-            RealInput.TextColor3 = Color3.fromRGB(0, 0, 0)
+            RealInput.TextColor3 = Color3.fromRGB(255, 255, 255)
             RealInput.TextSize = 13.000
             RealInput.TextWrapped = true
             RealInput.FocusLost:Connect(function()
