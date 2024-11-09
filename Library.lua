@@ -1263,7 +1263,7 @@ function Library:AddWindows()
                 Check_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Check_2.BorderSizePixel = 0
                 Check_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-                Check_2.Size = UDim2.new(1, -2, 1, -2)
+                Check_2.Size = UDim2.new(0,0,0,0)
 
                 UICorner_29.CornerRadius = UDim.new(0, 4)
                 UICorner_29.Parent = Check_2
@@ -1275,7 +1275,7 @@ function Library:AddWindows()
                 Checker_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 Checker_3.BorderSizePixel = 0
                 Checker_3.Position = UDim2.new(0.5, 0, 0.5, 0)
-                Checker_3.Size = UDim2.new(1, -5, 1, -5)
+                Checker_3.Size = UDim2.new(0,0,0,0)
                 Checker_3.Image = "http://www.roblox.com/asset/?id=110154647736853"
                 Checker_3.ImageColor3 = Color3.fromRGB(0, 0, 0)
 
