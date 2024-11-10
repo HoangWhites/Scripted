@@ -1578,7 +1578,7 @@ function Library:AddWindows()
 					NumberValue.Text = tostring(Valid)
 				end
 			end)
-            SliderFunc:Set(tonumber(cfslider.Default))
+            SliderFunc:Set(tonumber(cf.Default))
             return SliderFunc
         end
         function Fe:AddDropdown(cf)
