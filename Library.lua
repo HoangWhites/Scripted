@@ -808,7 +808,7 @@ function Library:AddWindows()
             Title.TextColor3 = Color3.fromRGB(255, 255, 255)
             Title.TextSize = 13.000
             Title:GetPropertyChangedSignal("Text"):Connect(function()
-                Title.Size = UDim2.new(0, Title.TextBounds.X + 15, 0, 45)
+                Title.Size = UDim2.new(0, Title.TextBounds.X + 34, 0, 45)
             end)
         end
         function Fe:AddButton(cf)
@@ -1412,26 +1412,23 @@ function Library:AddWindows()
                         {Size = UDim2.fromScale((Value - cfslider.Min) / (cfslider.Max - cfslider.Min), 1)}
                     ):Play()
                 end
-    
                 SliderFrame_2.InputBegan:Connect(function(input)
                     if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
                         dragging = true
                     end
                 end)
-    
                 uis.InputEnded:Connect(function(input)
                     if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
                         dragging = false
                     end
                 end)            
-    
                 uis.InputChanged:Connect(function(input)
                     if dragging then
                         local SizeScale = math.clamp((input.Position.X - SliderFrame_2.AbsolutePosition.X) / SliderFrame_2.AbsoluteSize.X, 0, 1)
                         Slider1:Set(cfslider.Min + ((cfslider.Max - cfslider.Min) * SizeScale)) 
                     end
                 end)        
-                Slider1:Set(cfslider.Default)
+                Slider1:Set(tonumber(cfslider.Default))
                 return Slider1
             end
             return ToggleFunc
@@ -1581,6 +1578,7 @@ function Library:AddWindows()
 					NumberValue.Text = tostring(Valid)
 				end
 			end)
+            SliderFunc:Set(tonumber(cfslider.Default))
             return SliderFunc
         end
         function Fe:AddDropdown(cf)
