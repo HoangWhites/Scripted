@@ -1121,8 +1121,7 @@ function Library:AddWindows()
 
             Clicked_2.Activated:Connect(function()
                 CircleClick(Clicked_2, Mouse.X, Mouse.Y)
-                Toggled = not Toggled
-                ToggleFunc:Set(Toggled)
+                ToggleFunc:Set(not Toggled)
             end)
 
             function ToggleFunc:AddToggle(cftoggle)
@@ -1235,9 +1234,8 @@ function Library:AddWindows()
                 end
 
                 Clicked_8.Activated:Connect(function()
-                    CircleClick(Clicked_8, Mouse.X, Mouse.Y)
-                    NiggaToggled = not NiggaToggled
-                    ToggleSettingsFunc:Set(NiggaToggled)
+                    CircleClick(Clicked_2, Mouse.X, Mouse.Y)
+                    ToggleSettingsFunc:Set(not NiggaToggled)
                 end)
                 return ToggleSettingsFunc
             end
