@@ -64,7 +64,7 @@ if not Config or Config == nil then
                 },
             },
             ["Blox Fruit"] = {
-                ["Enable"] = true,
+                ["Enable"] = false,
                 ["Z"] = {
                     ["Enable"] = true,
                     ["Hold"] = 0
