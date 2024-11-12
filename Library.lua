@@ -343,13 +343,6 @@ function Library:AddWindows()
     local UIStroke = Instance.new("UIStroke")
     local DropShadowHolder = Instance.new("Frame")
     local DropShadow = Instance.new("ImageLabel")
-    local OpeningHub = Instance.new("Frame")
-    local LogoHut = Instance.new("ImageLabel")
-    local NameHut = Instance.new("TextLabel")
-    local LoadProgess = Instance.new("Frame")
-    local UICorner_2 = Instance.new("UICorner")
-    local Progess = Instance.new("Frame")
-    local UICorner_3 = Instance.new("UICorner")
     local Top = Instance.new("Frame")
     local UICorner_4 = Instance.new("UICorner")
     local TopFake = Instance.new("Frame")
@@ -370,6 +363,7 @@ function Library:AddWindows()
     local UICorner_33 = Instance.new("UICorner")
     local UIStroke_15 = Instance.new("UIStroke")
     local ChangeSized = Instance.new("Frame")
+    local Lib = {}
 
     ChangeSized.Name = "ChangeSized"
     ChangeSized.Parent = MainScreen
@@ -419,78 +413,6 @@ function Library:AddWindows()
     DropShadow.ImageTransparency = 0.500
     DropShadow.ScaleType = Enum.ScaleType.Slice
     DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-    wait(1)
-
-    OpeningHub.Name = "Opening Hub"
-    OpeningHub.Parent = Main
-    OpeningHub.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
-    OpeningHub.BackgroundTransparency = 1.000
-    OpeningHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    OpeningHub.BorderSizePixel = 0
-    OpeningHub.Size = UDim2.new(1, 0, 1, 0)
-    OpeningHub.Visible = true
-
-    LogoHut.Name = "Logo Hut"
-    LogoHut.Parent = OpeningHub
-    LogoHut.AnchorPoint = Vector2.new(0.5, 0.5)
-    LogoHut.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    LogoHut.BackgroundTransparency = 1.000
-    LogoHut.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    LogoHut.BorderSizePixel = 0
-    LogoHut.Position = UDim2.new(0.5, 0, 0.400000006, 0)
-    LogoHut.Size = UDim2.new(0, 0, 0, 0) -- UDim2.new(0, 100, 0, 100)
-    LogoHut.Image = "http://www.roblox.com/asset/?id=86898109477722"
-    LogoHut.ImageTransparency = 1.000
-
-    NameHut.Name = "NameHut"
-    NameHut.Parent = OpeningHub
-    NameHut.AnchorPoint = Vector2.new(0.5, 0.5)
-    NameHut.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    NameHut.BackgroundTransparency = 1.000
-    NameHut.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    NameHut.BorderSizePixel = 0
-    NameHut.Position = UDim2.new(0.5, 0, 0.600000024, 0)
-    NameHut.Size = UDim2.new(0, 200, 0, 50)
-    NameHut.Font = Enum.Font.Unknown
-    NameHut.Text = "Whites Hub"
-    NameHut.TextColor3 = Color3.fromRGB(255, 255, 255)
-    NameHut.TextSize = 19.000
-    NameHut.TextTransparency = 1.000
-    NameHut.FontFace = Font.new([[rbxasset://fonts/families/Zekton.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-
-    LoadProgess.Name = "Load Progess"
-    LoadProgess.Parent = OpeningHub
-    LoadProgess.AnchorPoint = Vector2.new(0.5, 0.5)
-    LoadProgess.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-    LoadProgess.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    LoadProgess.BorderSizePixel = 0
-    LoadProgess.Position = UDim2.new(0.50999999, 0, 0.720000029, 0)
-    LoadProgess.Size = UDim2.new(0, 300, 0, 25)
-
-    UICorner_2.Parent = LoadProgess
-
-    Progess.Name = "Progess"
-    Progess.Parent = LoadProgess
-    Progess.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Progess.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Progess.BorderSizePixel = 0
-    Progess.Size = UDim2.new(0, 0, 0, 25)
-    UICorner_3.Parent = Progess
-
-    TweenService:Create(LogoHut, TweenInfo.new(1.5, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 100, 0, 100)}):Play()
-    TweenService:Create(LogoHut, TweenInfo.new(1.5, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {ImageTransparency = 0}):Play()
-    wait(1)
-    TweenService:Create(NameHut, TweenInfo.new(2, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {TextTransparency = 0}):Play()
-    wait(1)
-    TweenService:Create(Progess, TweenInfo.new(4, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 300, 0, 25)}):Play()
-    wait(3.5)
-    TweenService:Create(LogoHut, TweenInfo.new(1.5, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 115, 0, 115)}):Play()
-    TweenService:Create(LogoHut, TweenInfo.new(2, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {ImageTransparency = 1.000}):Play()
-    wait(1)
-    TweenService:Create(NameHut, TweenInfo.new(2, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {TextTransparency = 1.000}):Play()
-    TweenService:Create(LoadProgess, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundTransparency = 1.000}):Play()
-    TweenService:Create(Progess, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundTransparency = 1.000}):Play()
-    wait(2)
 
     UIClose.Name = "UIClose"
     UIClose.Parent = MainScreen
@@ -657,7 +579,9 @@ function Library:AddWindows()
     UIPageLayout.Padding = UDim.new(0, 12)
     UIPageLayout.TweenTime = 0.480
     UIPageLayout.ScrollWheelInputEnabled = false
-    
+    function Library:BuildUI()
+        Main.Visible = true
+    end
     makedraggable(Top, Main)
     local CountTab = 0
     local TabFunc = {}
