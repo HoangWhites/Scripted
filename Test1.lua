@@ -944,7 +944,7 @@ function GaySec()
                     if (enemy.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude >= 150 then
                         to(enemy.Character.HumanoidRootPart.CFrame * CFrame.new(0, 25, 0))
                     else
-                        if enemy:DistanceFromCharacter(plr.Character.Head.Position) < 100 and tick() - Nguvai >= 15 then
+                        if enemy:DistanceFromCharacter(plr.Character.Head.Position) < 100 and tick() - Nguvai >= 15 and not CheckInComBat() then
                             FindNewEnemy()
                             Nguvai = tick()
                         end
@@ -962,7 +962,7 @@ function GaySec()
                     end
                 end
                 lastCombatTime = tick()
-                if tick() - lastCombatTime >= 15 then
+                if tick() - lastCombatTime >= 15 and not CheckInComBat() then
                     FindNewEnemy()
                     lastCombatTime = tick()
                 end
