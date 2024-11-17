@@ -1,8 +1,7 @@
-if hookfunction and not islclosure(hookfunction) then 
-    local RS = game:GetService("ReplicatedStorage")
-    for i, v in next, RS.Assets.GUI:GetChildren() do 
-        v.Enabled = false 
-    end
-    hookfunction(require(RS.Effect.Container.Death), function() end)
-    hookfunction(require(RS.Effect.Container.Respawn), function() end)
+local RS = game.ReplicatedStorage
+local plr = game.Players.LocalPlayer
+for i, v in pairs(RS.Assets.GUI:GetChildren()) do 
+    v.Enabled = false 
 end
+hookfunction(require(RS.Effect.Container.Death), function() end)
+hookfunction(require(RS.Effect.Container.Respawn), function() end)
