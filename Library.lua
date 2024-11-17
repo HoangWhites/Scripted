@@ -1103,7 +1103,7 @@ function Library:AddWindows()
             Clicked_2.Activated:Connect(function()
 				CircleClick(Clicked_2, Mouse.X, Mouse.Y)
 				ToggleFunc.Value = not ToggleFunc.Value
-				cf.Callback(ToggleFunc.Value)
+				ToggleFunc:Set(ToggleFunc.Value)
 			end)
 
 			function ToggleFunc:Set(Value)
