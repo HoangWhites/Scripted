@@ -1119,7 +1119,7 @@ function Library:AddWindows()
 				ToggleFunc.Value = Value
 				cf.Callback(ToggleFunc.Value)
 			end
-
+			ToggleFunc:Set(ToggleFunc.Value)
 			function ToggleFunc:AddToggle(cftoggle)
 				cftoggle = cftoggle or {}
 				cftoggle.Name = cftoggle.Name or "Toggle"
