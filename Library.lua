@@ -857,7 +857,7 @@ function Library:AddWindows()
 			local List = Instance.new("Frame")
 			local UIListLayout_4 = Instance.new("UIListLayout")
 			local UIPadding_4 = Instance.new("UIPadding")
-			local ToggleFunc = {}
+			local ToggleFunc = {Value = cf.Default}
 
 			Toggle.Name = "Toggle"
 			Toggle.Parent = Channel
@@ -1100,7 +1100,12 @@ function Library:AddWindows()
 				end)
 			end
 
-			Toggled = false
+            Clicked_2.Activated:Connect(function()
+				CircleClick(Clicked_2, Mouse.X, Mouse.Y)
+				ToggleFunc.Value = not ToggleFunc.Value
+				cf.Callback(ToggleFunc.Value)
+			end)
+
 			function ToggleFunc:Set(Value)
 				if Value then
 					TweenService:Create(Title_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
@@ -1111,29 +1116,9 @@ function Library:AddWindows()
 					TweenService:Create(Check, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
 					TweenService:Create(Checker, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
 				end
-				Toggled = Value
-				cf.Callback(Toggled)
+				ToggleFunc.Value = Value
+				cf.Callback(ToggleFunc.Value)
 			end
-
-			if cf.Default then
-				Toggled = true
-				ToggleFunc:Set(true)
-			end
-
-			Clicked_2.Activated:Connect(function()
-				CircleClick(Clicked_2, Mouse.X, Mouse.Y)
-				if not Toggled then
-					TweenService:Create(Title_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-					TweenService:Create(Check, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(1, -2, 1, -2)}):Play()
-					TweenService:Create(Checker, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(1, -5, 1, -5)}):Play()
-				else
-					TweenService:Create(Title_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(177, 177, 177)}):Play()
-					TweenService:Create(Check, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-					TweenService:Create(Checker, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-				end
-				Toggled = not Toggled
-				cf.Callback(Toggled)
-			end)
 
 			function ToggleFunc:AddToggle(cftoggle)
 				cftoggle = cftoggle or {}
