@@ -1,7 +1,5 @@
-local RS = game.ReplicatedStorage
-local plr = game.Players.LocalPlayer
-for i, v in pairs(RS.Assets.GUI:GetChildren()) do 
+for i, v in pairs(game.ReplicatedStorage.Assets.GUI:GetChildren()) do 
     v.Enabled = false 
 end
-hookfunction(require(RS.Effect.Container.Death), function() end)
-hookfunction(require(RS.Effect.Container.Respawn), function() end)
+hookfunction(require(game.ReplicatedStorage.Effect.Container.Death), function() end)
+hookfunction(require(game.ReplicatedStorage.Effect.Container.Respawn), function() end)
