@@ -454,13 +454,14 @@ function Library:AddWindows()
 	Clicked_9.BorderSizePixel = 0
 	Clicked_9.Size = UDim2.new(1, 0, 1, 0)
 	Clicked_9.Image = "rbxassetid://105332563796698"
+	local OldSize = UDim2.new(0, 500, 0, 300)
 	Clicked_9.Activated:Connect(function()
 		CircleClick(Clicked_9, Mouse.X, Mouse.Y)
 		if Main.Size.Y.Offset <= 0 then
 			UIStroke.Enabled = true
-			OldSize = Main.Size
 			TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = OldSize}):Play()
 		else
+			OldSize = Main.Size
 			UIStroke.Enabled = false
 			TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, -0)}):Play()
 		end
