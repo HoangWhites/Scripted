@@ -15,7 +15,7 @@ TweenObject = fucntion(Object, Pos, Speed)
     local info = TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
     local tween = tweenService:Create(ObjectTween, info, {CFrame = Pos})
     if not Object:FindFirstChild("PartTween") then
-        local ObjectTween = Instance.new("Part", workspace)
+        local ObjectTween = Instance.new("Part", Object)
         ObjectTween.Size = Vector3.new(1, 1, 1)
         ObjectTween.Name = "Object Part....."
         ObjectTween.Anchored = true
