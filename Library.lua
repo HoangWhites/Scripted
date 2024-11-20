@@ -458,7 +458,8 @@ function Library:AddWindows()
 		CircleClick(Clicked_9, Mouse.X, Mouse.Y)
 		if Main.Size.Y.Offset <= 0 then
 			UIStroke.Enabled = true
-			TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 500, 0, 300)}):Play()
+			OldSize = Main.Size
+			TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = OldSize}):Play()
 		else
 			UIStroke.Enabled = false
 			TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, -0)}):Play()
@@ -1120,6 +1121,7 @@ function Library:AddWindows()
 				cf.Callback(ToggleFunc.Value)
 			end
 			ToggleFunc:Set(ToggleFunc.Value)
+			
 			function ToggleFunc:AddToggle(cftoggle)
 				cftoggle = cftoggle or {}
 				cftoggle.Name = cftoggle.Name or "Toggle"
