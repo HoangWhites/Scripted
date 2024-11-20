@@ -1,7 +1,7 @@
 GetOwnerShip = function()
     for r, v in next, game.Workspace.Boats:GetChildren() do
         if v:FindFirstChild("Owner") then
-            if v.Owner.Value == game.Players.LocalPlayer.Name then
+            if v.Owner.Value == game.Players.LocalPlayer then
                 return v
             end
         end
@@ -26,7 +26,7 @@ TweenObject = function(Object, Pos, Speed)
             Object.CFrame = ObjectTween.CFrame
         end)
     end
-    local tween = tweenService:Create(ObjectTween, info, {CFrame = Pos})
+    local tween = tweenService:Create(game.Workspace.ObjectTween, info, {CFrame = Pos})
     tween:Play()
 end
 if GetOwnerShip() then
