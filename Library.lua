@@ -454,14 +454,12 @@ function Library:AddWindows()
 	Clicked_9.BorderSizePixel = 0
 	Clicked_9.Size = UDim2.new(1, 0, 1, 0)
 	Clicked_9.Image = "rbxassetid://105332563796698"
-	local OldSize = UDim2.new(0, 500, 0, 300)
 	Clicked_9.Activated:Connect(function()
 		CircleClick(Clicked_9, Mouse.X, Mouse.Y)
 		if Main.Size.Y.Offset <= 0 then
 			UIStroke.Enabled = true
-			TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = OldSize}):Play()
+			TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 500, 0, 300)}):Play()
 		else
-			OldSize = Main.Size
 			UIStroke.Enabled = false
 			TweenService:Create(Main, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, -0)}):Play()
 		end
@@ -701,8 +699,9 @@ function Library:AddWindows()
 		local Fe = {}
 		function Fe:AddSeperator(hahaha)
 			local Seperator = Instance.new("Frame")
-			local Line = Instance.new("Frame")
 			local Title = Instance.new("TextLabel")
+			local left = Instance.new("ImageLabel")
+			local Right = Instance.new("ImageLabel")
 
 			Seperator.Name = "Seperator"
 			Seperator.Parent = Channel
@@ -712,17 +711,8 @@ function Library:AddWindows()
 			Seperator.BorderSizePixel = 0
 			Seperator.Size = UDim2.new(1, 0, 0, 30)
 
-			Line.Name = "Line"
-			Line.Parent = Seperator
-			Line.AnchorPoint = Vector2.new(0.5, 0.5)
-			Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			Line.BorderSizePixel = 0
-			Line.Position = UDim2.new(0.5, 0, 0.5, 0)
-			Line.Size = UDim2.new(1, 0, 0, 2)
-
 			Title.Name = "Title"
-			Title.Parent = Line
+			Title.Parent = Seperator
 			Title.AnchorPoint = Vector2.new(0.5, 0.5)
 			Title.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
 			Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -733,9 +723,27 @@ function Library:AddWindows()
 			Title.Text = hahaha
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 13.000
-			Title:GetPropertyChangedSignal("Text"):Connect(function()
-				Title.Size = UDim2.new(0, Title.TextBounds.X + 34, 0, 45)
-			end)
+
+			left.Name = "left"
+			left.Parent = Seperator
+			left.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			left.BackgroundTransparency = 1.000
+			left.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			left.BorderSizePixel = 0
+			left.Position = UDim2.new(0, 7, 0, 4)
+			left.Rotation = 180.000
+			left.Size = UDim2.new(0, 22, 0, 22)
+			left.Image = "http://www.roblox.com/asset/?id=110651762258859"
+
+			Right.Name = "Right"
+			Right.Parent = Seperator
+			Right.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Right.BackgroundTransparency = 1.000
+			Right.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			Right.BorderSizePixel = 0
+			Right.Position = UDim2.new(1, -28, 0, 4)
+			Right.Size = UDim2.new(0, 22, 0, 22)
+			Right.Image = "http://www.roblox.com/asset/?id=110651762258859"
 		end
 		function Fe:AddButton(cf)
 			cf = cf or {}
@@ -838,11 +846,10 @@ function Library:AddWindows()
 			local UIStroke_3 = Instance.new("UIStroke")
 			local Clicked_2 = Instance.new("TextButton")
 			local CheckFrame = Instance.new("Frame")
-			local UICorner_11 = Instance.new("UICorner")
 			local UIStroke_4 = Instance.new("UIStroke")
-			local Check = Instance.new("Frame")
+			local UICorner_11 = Instance.new("UICorner")
+			local Circle = Instance.new("Frame")
 			local UICorner_12 = Instance.new("UICorner")
-			local Checker = Instance.new("ImageLabel")
 			local Settings = Instance.new("Frame")
 			local UICorner_13 = Instance.new("UICorner")
 			local Hide = Instance.new("Frame")
@@ -859,7 +866,7 @@ function Library:AddWindows()
 			local List = Instance.new("Frame")
 			local UIListLayout_4 = Instance.new("UIListLayout")
 			local UIPadding_4 = Instance.new("UIPadding")
-			local ToggleFunc = {Value = cf.Default}
+			local ToggleFunc = {}
 
 			Toggle.Name = "Toggle"
 			Toggle.Parent = Channel
@@ -882,7 +889,7 @@ function Library:AddWindows()
 			Title_3.Size = UDim2.new(1, 0, 0, 15)
 			Title_3.Font = Enum.Font.GothamBold
 			Title_3.Text = cf.Name
-			Title_3.TextColor3 = Color3.fromRGB(177, 177, 177)
+			Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title_3.TextSize = 13.000
 			Title_3.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -893,7 +900,7 @@ function Library:AddWindows()
 			Description_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Description_2.BorderSizePixel = 0
 			Description_2.Position = UDim2.new(0, 7, 0, 19)
-			Description_2.Size = UDim2.new(1, -40, 0, 26)
+			Description_2.Size = UDim2.new(1, 0, 0, 26)
 			Description_2.Font = Enum.Font.GothamBold
 			Description_2.Text = cf.Description
 			Description_2.TextColor3 = Color3.fromRGB(144, 144, 144)
@@ -912,7 +919,7 @@ function Library:AddWindows()
 			Clicked_2.BackgroundTransparency = 1.000
 			Clicked_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Clicked_2.BorderSizePixel = 0
-			Clicked_2.Size = UDim2.new(1, -20, 1, 0)
+			Clicked_2.Size = UDim2.new(1, 0, 1, 0)
 			Clicked_2.Font = Enum.Font.SourceSans
 			Clicked_2.Text = ""
 			Clicked_2.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -920,41 +927,31 @@ function Library:AddWindows()
 
 			CheckFrame.Name = "CheckFrame"
 			CheckFrame.Parent = Toggle
-			CheckFrame.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
+			CheckFrame.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 			CheckFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			CheckFrame.BorderSizePixel = 0
-			CheckFrame.Position = UDim2.new(1, -55, 0, 10)
-			CheckFrame.Size = UDim2.new(0, 25, 0, 25)
-
-			UICorner_11.CornerRadius = UDim.new(0, 4)
-			UICorner_11.Parent = CheckFrame
+			CheckFrame.Position = UDim2.new(1, -72, 0, 13)
+			CheckFrame.Size = UDim2.new(0, 42, 0, 20)
 
 			UIStroke_4.Parent = CheckFrame
 			UIStroke_4.Color = Color3.fromRGB(255, 255, 255)
-			UIStroke_4.Transparency = 0.870
+			UIStroke_4.Transparency = 0.920
+			UIStroke_4.Thickness = 1.500
 
-			Check.Name = "Check"
-			Check.Parent = CheckFrame
-			Check.AnchorPoint = Vector2.new(0.5, 0.5)
-			Check.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Check.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			Check.BorderSizePixel = 0
-			Check.Position = UDim2.new(0.5, 0, 0.5, 0)
-			Check.Size = UDim2.new(0, 0, 0,0) -- UDim2.new(1, -2, 1, -2)
+			UICorner_11.CornerRadius = UDim.new(1, 0)
+			UICorner_11.Parent = CheckFrame
 
-			UICorner_12.CornerRadius = UDim.new(0, 4)
-			UICorner_12.Parent = Check
+			Circle.Name = "Circle"
+			Circle.Parent = CheckFrame
+			Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Circle.BackgroundTransparency = 0.900
+			Circle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			Circle.BorderSizePixel = 0
+			Circle.Position = UDim2.new(0, 2, 0, 1)
+			Circle.Size = UDim2.new(0, 18, 0, 18)
 
-			Checker.Name = "Checker"
-			Checker.Parent = Check
-			Checker.AnchorPoint = Vector2.new(0.5, 0.5)
-			Checker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Checker.BorderColor3 = Color3.fromRGB(0, 0, 0)
-			Checker.BorderSizePixel = 0
-			Checker.Position = UDim2.new(0.5, 0, 0.5, 0)
-			Checker.Size = UDim2.new(0, 0, 0, 0) -- UDim2.new(1, -5, 1, -5)
-			Checker.Image = "http://www.roblox.com/asset/?id=110154647736853"
-			Checker.ImageColor3 = Color3.fromRGB(0, 0, 0)
+			UICorner_12.CornerRadius = UDim.new(1, 0)
+			UICorner_12.Parent = Circle
 
 			if cf.Settings then
 				Settings.Name = "Settings"
@@ -1102,27 +1099,36 @@ function Library:AddWindows()
 				end)
 			end
 
-            Clicked_2.Activated:Connect(function()
-				CircleClick(Clicked_2, Mouse.X, Mouse.Y)
-				ToggleFunc.Value = not ToggleFunc.Value
-				ToggleFunc:Set(ToggleFunc.Value)
-			end)
-
+			Toggled = false
 			function ToggleFunc:Set(Value)
 				if Value then
 					TweenService:Create(Title_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-					TweenService:Create(Check, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(1, -2, 1, -2)}):Play()
-					TweenService:Create(Checker, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(1, -5, 1, -5)}):Play()
+					TweenService:Create(CheckFrame, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(25, 79, 255)}):Play()
+					TweenService:Create(UIStroke_4, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Color = Color3.fromRGB(25, 79, 255)}):Play()
+					TweenService:Create(UIStroke_4, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Transparency = 0}):Play()
+					TweenService:Create(Circle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Position = UDim2.new(0, 22, 0, 1)}):Play()
+                    TweenService:Create(Circle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundTransparency = 0}):Play()
 				else
+					TweenService:Create(UIStroke_4, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Color = Color3.fromRGB(255, 255, 255)}):Play()
+					TweenService:Create(UIStroke_4, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Transparency = 0.920}):Play()
 					TweenService:Create(Title_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(177, 177, 177)}):Play()
-					TweenService:Create(Check, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-					TweenService:Create(Checker, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+					TweenService:Create(CheckFrame, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(22, 22, 22)}):Play()
+					TweenService:Create(Circle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Position = UDim2.new(0, 2, 0, 1)}):Play()
+                    TweenService:Create(Circle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.920}):Play()
 				end
-				ToggleFunc.Value = Value
-				cf.Callback(ToggleFunc.Value)
+				Toggled = Value
+				cf.Callback(Toggled)
 			end
-			ToggleFunc:Set(ToggleFunc.Value)
-			
+
+			if cf.Default then
+				ToggleFunc:Set(true)
+			end
+
+			Clicked_2.Activated:Connect(function()
+				CircleClick(Clicked_2, Mouse.X, Mouse.Y)
+				ToggleFunc:Set(not Toggled)
+			end)
+
 			function ToggleFunc:AddToggle(cftoggle)
 				cftoggle = cftoggle or {}
 				cftoggle.Name = cftoggle.Name or "Toggle"
@@ -1130,13 +1136,12 @@ function Library:AddWindows()
 				cftoggle.Callback = cftoggle.Callback or function() end
 
 				local Toggle_2 = Instance.new("Frame")
+				local CheckFrame_3 = Instance.new("Frame")
 				local Title_10 = Instance.new("TextLabel")
-				local Checker_2 = Instance.new("Frame")
-				local UICorner_28 = Instance.new("UICorner")
-				local UIStroke_13 = Instance.new("UIStroke")
-				local Check_2 = Instance.new("Frame")
-				local UICorner_29 = Instance.new("UICorner")
-				local Checker_3 = Instance.new("ImageLabel")
+				local UIStroke_15 = Instance.new("UIStroke")
+				local UICorner_32 = Instance.new("UICorner")
+				local Circle_3 = Instance.new("Frame")
+				local UICorner_33 = Instance.new("UICorner")
 				local Clicked_8 = Instance.new("TextButton")
 				local ToggleSettingsFunc = {}
 
@@ -1162,44 +1167,33 @@ function Library:AddWindows()
 				Title_10.TextSize = 13.000
 				Title_10.TextXAlignment = Enum.TextXAlignment.Left
 
-				Checker_2.Name = "Checker"
-				Checker_2.Parent = Toggle_2
-				Checker_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
-				Checker_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				Checker_2.BorderSizePixel = 0
-				Checker_2.Position = UDim2.new(0.864, 0,0.17, 0)
-				Checker_2.Size = UDim2.new(0, 25, 0, 25)
+				CheckFrame_3.Name = "CheckFrame"
+				CheckFrame_3.Parent = Toggle_2
+				CheckFrame_3.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+				CheckFrame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				CheckFrame_3.BorderSizePixel = 0
+				CheckFrame_3.Position = UDim2.new(1, -50, 0, 8)
+				CheckFrame_3.Size = UDim2.new(0, 42, 0, 20)
 
-				UICorner_28.CornerRadius = UDim.new(0, 4)
-				UICorner_28.Parent = Checker_2
+				UIStroke_15.Parent = CheckFrame_3
+				UIStroke_15.Color = Color3.fromRGB(255, 255, 255)
+				UIStroke_15.Transparency = 0.920
+				UIStroke_15.Thickness = 1.500
 
-				UIStroke_13.Parent = Checker_2
-				UIStroke_13.Color = Color3.fromRGB(255, 255, 255)
-				UIStroke_13.Transparency = 0.890
-				UIStroke_13.Thickness = 1.200
+				UICorner_32.CornerRadius = UDim.new(1, 0)
+				UICorner_32.Parent = CheckFrame_3
 
-				Check_2.Name = "Check"
-				Check_2.Parent = Checker_2
-				Check_2.AnchorPoint = Vector2.new(0.5, 0.5)
-				Check_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Check_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				Check_2.BorderSizePixel = 0
-				Check_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-				Check_2.Size = UDim2.new(0,0,0,0)
+				Circle_3.Name = "Circle"
+				Circle_3.Parent = CheckFrame_3
+				Circle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				Circle_3.BackgroundTransparency = 0.900
+				Circle_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				Circle_3.BorderSizePixel = 0
+				Circle_3.Position = UDim2.new(0, 2, 0, 1)
+				Circle_3.Size = UDim2.new(0, 18, 0, 18)
 
-				UICorner_29.CornerRadius = UDim.new(0, 4)
-				UICorner_29.Parent = Check_2
-
-				Checker_3.Name = "Checker"
-				Checker_3.Parent = Check_2
-				Checker_3.AnchorPoint = Vector2.new(0.5, 0.5)
-				Checker_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Checker_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-				Checker_3.BorderSizePixel = 0
-				Checker_3.Position = UDim2.new(0.5, 0, 0.5, 0)
-				Checker_3.Size = UDim2.new(0,0,0,0)
-				Checker_3.Image = "http://www.roblox.com/asset/?id=110154647736853"
-				Checker_3.ImageColor3 = Color3.fromRGB(0, 0, 0)
+				UICorner_33.CornerRadius = UDim.new(1, 0)
+				UICorner_33.Parent = Circle_3
 
 				Clicked_8.Name = "Clicked"
 				Clicked_8.Parent = Toggle_2
@@ -1217,35 +1211,30 @@ function Library:AddWindows()
 				function ToggleSettingsFunc:Set(Value)
 					if Value then
 						TweenService:Create(Title_10, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-						TweenService:Create(Check_2, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(1, -2, 1, -2)}):Play()
-						TweenService:Create(Checker_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(1, -5, 1, -5)}):Play()
+						TweenService:Create(CheckFrame_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(25, 79, 255)}):Play()
+						TweenService:Create(UIStroke_15, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Color = Color3.fromRGB(25, 79, 255)}):Play()
+						TweenService:Create(UIStroke_15, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Transparency = 0}):Play()
+                        TweenService:Create(Circle_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Transparency = 0}):Play()
+						TweenService:Create(Circle_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Position = UDim2.new(0, 22, 0, 1)}):Play()
 					else
+                        TweenService:Create(Circle_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Transparency = 0.930}):Play()
+						TweenService:Create(UIStroke_15, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Color = Color3.fromRGB(255, 255, 255)}):Play()
+						TweenService:Create(UIStroke_15, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Transparency = 0.920}):Play()
 						TweenService:Create(Title_10, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(177, 177, 177)}):Play()
-						TweenService:Create(Check_2, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-						TweenService:Create(Checker_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
+						TweenService:Create(CheckFrame_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(22, 22, 22)}):Play()
+						TweenService:Create(Circle_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Position = UDim2.new(0, 2, 0, 1)}):Play()
 					end
 					NiggaToggled = Value
 					cftoggle.Callback(NiggaToggled)
 				end
 
 				if cftoggle.Default then
-					NiggaToggled = true
 					ToggleSettingsFunc:Set(true)
 				end
 
 				Clicked_8.Activated:Connect(function()
-					CircleClick(Clicked_8, Mouse.X, Mouse.Y)
-					if not NiggaToggled then
-						TweenService:Create(Title_10, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-						TweenService:Create(Check_2, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(1, -2, 1, -2)}):Play()
-						TweenService:Create(Checker_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(1, -5, 1, -5)}):Play()
-					else
-						TweenService:Create(Title_10, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(177, 177, 177)}):Play()
-						TweenService:Create(Check_2, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-						TweenService:Create(Checker_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-					end
-					NiggaToggled = not NiggaToggled
-					cftoggle.Callback(NiggaToggled)
+					CircleClick(Clicked_2, Mouse.X, Mouse.Y)
+					ToggleSettingsFunc:Set(not NiggaToggled)
 				end)
 				return ToggleSettingsFunc
 			end
@@ -1612,7 +1601,7 @@ function Library:AddWindows()
 			ListFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			ListFrame.BorderSizePixel = 0
 			ListFrame.Position = UDim2.new(0, 10, 0, 50)
-			ListFrame.Size = UDim2.new(0, 338, 0, 90)
+			ListFrame.Size = UDim2.new(0, 338, 0, 120)
 
 			UICorner_15.CornerRadius = UDim.new(0, 4)
 			UICorner_15.Parent = ListFrame
@@ -1650,7 +1639,7 @@ function Library:AddWindows()
 			Clicked_4.Activated:Connect(function()
 				CircleClick(Clicked_4, Mouse.X, Mouse.Y)
 				if Dropdown.Size.Y.Offset <= 45 then
-					Dropdown:TweenSize(UDim2.new(1, 0, 0, 145),"Out","Quad",0.3,true)
+					Dropdown:TweenSize(UDim2.new(1, 0, 0, 175),"Out","Quad",0.3,true)
 					TweenService:Create(Icon_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {Rotation = 0}):Play()
 				else
 					Dropdown:TweenSize(UDim2.new(1, 0, 0, 45),"Out","Quad",0.3,true)
