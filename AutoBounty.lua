@@ -1097,7 +1097,7 @@ function AutoFarm()
                             end
                         end
                     else
-                        if not plr.PlayerGui.Quest.Visible or CheckStringQuests("Urban") or CheckStringQuests("Deandre") or CheckStringQuests("Diablo") then
+                        if not plr.PlayerGui.Main.Quest.Visible or CheckStringQuests("Urban") or CheckStringQuests("Deandre") or CheckStringQuests("Diablo") then
                             local QuestCFrame = NPCQuest()
                             if GetDistance(QuestCFrame.Position) <= 10 then
                                 FireRemotes(2, "StartQuest", GetDoubleQuest["NameQuest"], GetDoubleQuest["ID"])
