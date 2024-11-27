@@ -1100,6 +1100,11 @@ function Library:AddWindows()
 			end
 
 			Toggled = false
+			Clicked_2.Activated:Connect(function()
+				CircleClick(Clicked_2, Mouse.X, Mouse.Y)
+				ToggleFunc:Set(not Toggled)
+			end)
+
 			function ToggleFunc:Set(Value)
 				if Value then
 					TweenService:Create(Title_3, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
@@ -1123,11 +1128,6 @@ function Library:AddWindows()
 			if cf.Default then
 				ToggleFunc:Set(true)
 			end
-
-			Clicked_2.Activated:Connect(function()
-				CircleClick(Clicked_2, Mouse.X, Mouse.Y)
-				ToggleFunc:Set(not Toggled)
-			end)
 
 			function ToggleFunc:AddToggle(cftoggle)
 				cftoggle = cftoggle or {}
@@ -1207,6 +1207,11 @@ function Library:AddWindows()
 				Clicked_8.TextColor3 = Color3.fromRGB(0, 0, 0)
 				Clicked_8.TextSize = 14.000
 
+				Clicked_8.Activated:Connect(function()
+					CircleClick(Clicked_8, Mouse.X, Mouse.Y)
+					ToggleSettingsFunc:Set(not NiggaToggled)
+				end)
+
 				NiggaToggled = false
 				function ToggleSettingsFunc:Set(Value)
 					if Value then
@@ -1231,11 +1236,6 @@ function Library:AddWindows()
 				if cftoggle.Default then
 					ToggleSettingsFunc:Set(true)
 				end
-
-				Clicked_8.Activated:Connect(function()
-					CircleClick(Clicked_2, Mouse.X, Mouse.Y)
-					ToggleSettingsFunc:Set(not NiggaToggled)
-				end)
 				return ToggleSettingsFunc
 			end
 			function ToggleFunc:AddSlider(cfslider)
