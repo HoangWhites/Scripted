@@ -1836,7 +1836,7 @@ function Library:AddWindows()
 					Title_8.Text = cfSet.Name
 				end
 				if cfSet.Description ~= "" and cfSet.Description ~= nil then
-					Description_4.Text = cfSet.Name
+					Description_4.Text = cfSet.Description
 				end
 			end
 			return ParaFunc
