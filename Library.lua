@@ -75,7 +75,7 @@ local function makedraggable(topbarobject, object)
 			local newHeight = StartSize.Y.Offset + Delta.Y
 			newWidth = math.max(newWidth, maxSizeX)
 			newHeight = math.max(newHeight, maxSizeY)
-			local Tween = TweenService:Create(object, TweenInfo.new(0.2), {Size = UDim2.new(0, newWidth, 0, newHeight)})
+			local Tween = TweenService:Create(object, TweenInfo.new(0.03), {Size = UDim2.new(0, newWidth, 0, newHeight)})
 			Tween:Play()
 		end
 
@@ -1836,7 +1836,7 @@ function Library:AddWindows()
 					Title_8.Text = cfSet.Name
 				end
 				if cfSet.Description ~= "" and cfSet.Description ~= nil then
-					Description_4.Text = cfSet.Description
+					Description_4.Text = cfSet.Name
 				end
 			end
 			return ParaFunc
